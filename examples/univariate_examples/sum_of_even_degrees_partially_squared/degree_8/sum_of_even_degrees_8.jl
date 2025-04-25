@@ -70,8 +70,9 @@ for n_nodes in 3:6
     
                 catch e
                     println("⚠️ Error at i=$i: $(e)")
-                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
-                    continue  
+                    #                write(file, "⚠️ Error at i=$i: $(e)\n\n")
+                                i = i-1;
+                continue  
             end
                 
         end

@@ -68,11 +68,12 @@ open(path, "w") do file
             write(file, "\n")
             flush(file)
 
-            catch e
-                println("⚠️ Error at i=$i: $(e)")
-                write(file, "⚠️ Error at i=$i: $(e)\n\n")
-                continue  
-        end
+        catch e
+            println("⚠️ Error at i=$i: $(e)")
+            #                write(file, "⚠️ Error at i=$i: $(e)\n\n")
+                        i = i-1;
+        continue  
+end
             
     end
     write(file, "number of incomplete correspondences: $fail_correspondence_count\n")

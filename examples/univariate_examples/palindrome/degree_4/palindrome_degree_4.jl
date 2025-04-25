@@ -6,26 +6,26 @@ include("../../../../src/certified_monodromy_computation.jl")
     (x,)
     (η,)
     (t,)
-    (c1,c2,c3,c4)
+    (c1,c2,c3)
 end
 
 CCi = _CCi
 r = .1;
 
-F = hcat([c1*x^6+c2*x^5+c3*x^4+c4*x^3+c3*x^2+c2*x+c1])
-bp = [CCi(1/2), CCi(9/7), CCi(9/7), CCi(3/2)]
-x = [CCi(.560636,-.828062)]
+F = hcat([c1*x^4+c2*x^3+c3*x^2+c2*x+c1])
+bp = [CCi(1/2), -CCi(9/7), CCi(9/7)]
+x = [CCi(.460636,-.828062)]
 v1 = vertex(bp,[x])
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_6/palindrome_6.txt\");")
+@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_4/palindrome_4.txt\");")
 @gap("G;")
-@gap("StructureDescription(G);") # C2 x S4
-@gap("GaloisWidth(G);") #3
+@gap("StructureDescription(G);") # D8
+@gap("GaloisWidth(G);") #2
 
 
-for n_nodes in 3:7
+for n_nodes in 3:6
 
-    path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_6/results_degree_6_$(n_nodes)_nodes.txt")
+    path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_4/results_degree_4_$(n_nodes)_nodes.txt")
     using GAP
     gw_counts = Dict{Int, Int}()
     
@@ -37,16 +37,16 @@ for n_nodes in 3:7
         for i in 1:100
             try
                 v1 = vertex(bp,[x])
-                vs = parameter_points(v1, 4, n_nodes)
-                edges = track_complete_graph(F, r, vs,6)
-                if length(edges[1].correspondence12) != 6
+                vs = parameter_points(v1, 3, n_nodes)
+                edges = track_complete_graph(F, r, vs,4)
+                if length(edges[1].correspondence12) != 4
                     fail_correspondence_count = fail_correspondence_count+1;
                 end
     
                 perms=get_permutations(length(edges[1].correspondence12),edges)
-                str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_6/palindrome_6_$(n_nodes)nodes", "H")
+                str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_4/palindrome_4_$(n_nodes)nodes", "H")
     
-                filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_6/palindrome_6_$(n_nodes)nodes.txt")
+                filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/palindrome/degree_4/palindrome_4_$(n_nodes)nodes.txt")
                 cmd = string("Read(\"", filename, "\");")
                 GAP.evalstr(cmd)
                 A=@gap("StructureDescription(H);") 
@@ -70,7 +70,7 @@ for n_nodes in 3:7
     
                 catch e
                     println("⚠️ Error at i=$i: $(e)")
-                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
+#                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
                     i = i-1;
                     continue  
             end

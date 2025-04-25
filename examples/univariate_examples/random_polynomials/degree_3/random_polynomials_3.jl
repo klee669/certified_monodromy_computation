@@ -2,29 +2,29 @@ include("../../../../src/certified_monodromy_computation.jl")
 
 
 @setupfield begin
-    AcbField()
+    AcbField(1024)
     (x,)
     (η,)
     (t,)
-    (c1,c2,c3,c4,c5)
+    (c0,c1,c2,c3)
 end
 
 CCi = _CCi
 r = .1;
 
-F = hcat([c5*x^8+c4*x^6+c3*x^4+c2*x^2+c1])
-bp = [CCi(1/2), CCi(9/7), CCi(9/7), CCi(45/7), CCi(45/56)]
-x = [CCi(.532331,-.457645)]
+F = hcat([c3*x^3+c2*x^2+c1*x+c0])
+bp = [CCi(1/2), CCi(9/7), CCi(9/7), CCi(45/7)]
+x = [CCi(.0720838,-.481488)]
 v1 = vertex(bp,[x])
-n_nodes = 4;
+n_nodes = 6;
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/even_degree_sums_8.txt\");")
+@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/random_polynomials_3.txt\");")
 @gap("G;")
-@gap("StructureDescription(G);") # ((((C2 x C2 x C2) : (C2 x C2)) : C3) : C2) : C2
-@gap("GaloisWidth(G);") #3
+@gap("StructureDescription(G);") # S3
+@gap("GaloisWidth(G);") # 3
 
 
-path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/results_$(n_nodes)_nodes.txt")
+path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/results_$(n_nodes)_nodes.txt")
 using GAP
 gw_counts = Dict{Int, Int}()
 
@@ -36,16 +36,16 @@ open(path, "w") do file
     for i in 1:100
         try
             v1 = vertex(bp,[x])
-            vs = parameter_points(v1, 5, n_nodes)
-            edges = track_complete_graph(F, r, vs,8)
-            if length(edges[1].correspondence12) != 8
+            vs = parameter_points(v1, 4, n_nodes)
+            edges = track_complete_graph(F, r, vs,3)
+            if length(edges[1].correspondence12) != 3
                 fail_correspondence_count = fail_correspondence_count+1;
             end
 
             perms=get_permutations(length(edges[1].correspondence12),edges)
-            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/even_degree_sums_8_$(n_nodes)nodes", "H")
+            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/random_polynomials_3_$(n_nodes)nodes", "H")
 
-            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/even_degree_sums_8_$(n_nodes)nodes.txt")
+            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/random_polynomials_3_$(n_nodes)nodes.txt")
             cmd = string("Read(\"", filename, "\");")
             GAP.evalstr(cmd)
             A=@gap("StructureDescription(H);") 
@@ -69,8 +69,8 @@ open(path, "w") do file
 
             catch e
                 println("⚠️ Error at i=$i: $(e)")
-#                write(file, "⚠️ Error at i=$i: $(e)\n\n")
-            i = i-1;
+                #                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
+                i = i-1;
             continue  
         end
             

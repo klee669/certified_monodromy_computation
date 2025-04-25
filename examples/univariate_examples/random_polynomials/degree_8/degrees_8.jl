@@ -16,15 +16,15 @@ F = hcat([c8*x^8+c7*x^7+c6*x^6+c5*x^5+c4*x^4+c3*x^3+c2*x^2+c1*x+c0])
 bp = [CCi(1/2), CCi(9/7), CCi(9/7), CCi(45/7), CCi(45/56), CCi(-2/3), CCi(1/3), CCi(3/4), CCi(3/7)]
 x = [CCi(.0720838,-.481488)]
 v1 = vertex(bp,[x])
-n_nodes = 7;
+n_nodes = 6;
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/even_degree_sums_8.txt\");")
+@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_8/random_polynomials_8.txt\");")
 @gap("G;")
-@gap("StructureDescription(G);") # ((((C2 x C2 x C2) : (C2 x C2)) : C3) : C2) : C2
-@gap("GaloisWidth(G);") #3
+@gap("StructureDescription(G);") # S8
+@gap("GaloisWidth(G);") #8
 
 
-path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/results_$(n_nodes)_nodes.txt")
+path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_8/results_$(n_nodes)_nodes.txt")
 using GAP
 gw_counts = Dict{Int, Int}()
 
@@ -43,9 +43,9 @@ open(path, "w") do file
             end
 
             perms=get_permutations(length(edges[1].correspondence12),edges)
-            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/even_degree_sums_8_$(n_nodes)nodes", "H")
+            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_8/random_polynomials_8_$(n_nodes)nodes", "H")
 
-            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/even_degree_sums_8_$(n_nodes)nodes.txt")
+            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_8/random_polynomials_8_$(n_nodes)nodes.txt")
             cmd = string("Read(\"", filename, "\");")
             GAP.evalstr(cmd)
             A=@gap("StructureDescription(H);") 
@@ -69,8 +69,9 @@ open(path, "w") do file
 
             catch e
                 println("⚠️ Error at i=$i: $(e)")
-                write(file, "⚠️ Error at i=$i: $(e)\n\n")
-                continue  
+                #                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
+                i = i-1;
+            continue  
         end
             
     end

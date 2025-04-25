@@ -18,7 +18,7 @@ x = [CCi(.933811,.784519)]
 v1 = vertex(bp,[x])
 n_nodes = 7;
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/degree_6/sum_of_even_degrees/even_degree_sums_6.txt\");")
+@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/degree_6/even_degree_sums_6.txt\");")
 @gap("G;")
 @gap("StructureDescription(G);") # C2 x S4
 @gap("GaloisWidth(G);") #3
@@ -68,11 +68,12 @@ open(path, "w") do file
             write(file, "\n")
             flush(file)
 
-            catch e
-                println("⚠️ Error at i=$i: $(e)")
-                write(file, "⚠️ Error at i=$i: $(e)\n\n")
-                continue  
-        end
+        catch e
+            println("⚠️ Error at i=$i: $(e)")
+#                write(file, "⚠️ Error at i=$i: $(e)\n\n")
+            i = i-1;
+        continue  
+    end
             
     end
     write(file, "number of incomplete correspondences: $fail_correspondence_count\n")
