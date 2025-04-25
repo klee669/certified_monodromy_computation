@@ -52,7 +52,7 @@ function proceeding_step(
         h /= 2
         radii = h / 2
 
-        if h < 1e-20
+        if h < 1e-100
             error("Step size h too small (underflow)")
         end
 

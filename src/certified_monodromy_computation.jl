@@ -2,6 +2,7 @@ using Nemo
 using AbstractAlgebra
 using LinearAlgebra
 using MultivariatePolynomials
+using GAP
 #using Term.Progress
 
 include("poly_setup.jl")

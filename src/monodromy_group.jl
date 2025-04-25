@@ -144,7 +144,7 @@ function track_complete_graph(
 
 
     iter = 0
-    while all(i -> i == max_root_count, n_correspondences) == false
+    while !all(==(max_root_count), n_correspondences)
         for i in edgs
 
             if sum(prev_n_correspondences) == sum(n_correspondences)
@@ -156,7 +156,7 @@ function track_complete_graph(
                 println("After 10 iterations, no known solution was found. Tracking is stopped.")
                 return edgs
             end
-            prev_n_correspondences = n_correspondences
+            prev_n_correspondences = copy(n_correspondences)
 
 
             node1_idx = search_point(i.node1.base_point, base_points)
@@ -333,3 +333,36 @@ function str_convert(
         write(file, ");")
     end
 end
+
+
+
+@gap("GaloisWidth := function(G)
+  local X, M, C, phi;
+  if IsTrivial(G) then return 1;
+  elif IsNaturalSymmetricGroup(G) or IsNaturalAlternatingGroup(G) then
+    X := OrbitsDomain(G)[1];
+    if Length(X) = 4 then return 3;
+    else return Length(X);
+    fi;
+  elif IsCyclic(G) then return Maximum(Factors(Order(G)));
+  elif not IsTransitive(G) then 
+    return Maximum(List(Orbits(G), 
+      O -> GaloisWidth(Image(ActionHomomorphism(G,O)))
+    ));
+  else
+    X := OrbitsDomain(G)[1];
+    if not IsPrimitive(G) then
+      phi := ActionHomomorphism(G,Blocks(G, X),OnSets);
+      return Maximum(GaloisWidth(Kernel(phi)), GaloisWidth(Image(phi)));
+    elif IsSimple(G) then
+      M := List(ConjugacyClassesMaximalSubgroups(G), H -> Representative(H));
+      return Minimum(List(M, H -> Order(G)/Order(H)));
+    else
+      C := CompositionSeries(G);
+      return Maximum(List([1..Length(C)-1], 
+        i -> GaloisWidth(C[i]/C[i+1])
+      ));
+    fi;
+  fi;
+end;
+")
