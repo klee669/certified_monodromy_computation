@@ -58,9 +58,8 @@ G#19 description: GAP: "S4"
 G#20 description: GAP: "S4"
     isomorphic?: true
 
-G#21 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#21 description: GAP: "S4"
+    isomorphic?: true
 
 G#22 description: GAP: "S4"
     isomorphic?: true
@@ -74,9 +73,8 @@ G#24 description: GAP: "S4"
 G#25 description: GAP: "S4"
     isomorphic?: true
 
-G#26 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#26 description: GAP: "S4"
+    isomorphic?: true
 
 G#27 description: GAP: "S4"
     isomorphic?: true
@@ -108,9 +106,8 @@ G#35 description: GAP: "S4"
 G#36 description: GAP: "S4"
     isomorphic?: true
 
-G#37 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#37 description: GAP: "S4"
+    isomorphic?: true
 
 G#38 description: GAP: "S4"
     isomorphic?: true
@@ -121,8 +118,9 @@ G#39 description: GAP: "S4"
 G#40 description: GAP: "S4"
     isomorphic?: true
 
-G#41 description: GAP: "S4"
-    isomorphic?: true
+G#41 description: GAP: "S3"
+    isomorphic?: false
+    Galois width: 3
 
 G#42 description: GAP: "S4"
     isomorphic?: true
@@ -130,9 +128,8 @@ G#42 description: GAP: "S4"
 G#43 description: GAP: "S4"
     isomorphic?: true
 
-G#44 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#44 description: GAP: "S4"
+    isomorphic?: true
 
 G#45 description: GAP: "S4"
     isomorphic?: true
@@ -185,12 +182,12 @@ G#60 description: GAP: "S4"
 G#61 description: GAP: "S4"
     isomorphic?: true
 
-G#62 description: GAP: "S4"
-    isomorphic?: true
-
-G#63 description: GAP: "C2"
+G#62 description: GAP: "S3"
     isomorphic?: false
-    Galois width: 2
+    Galois width: 3
+
+G#63 description: GAP: "S4"
+    isomorphic?: true
 
 G#64 description: GAP: "S4"
     isomorphic?: true
@@ -213,8 +210,9 @@ G#69 description: GAP: "S4"
 G#70 description: GAP: "S4"
     isomorphic?: true
 
-G#71 description: GAP: "S4"
-    isomorphic?: true
+G#71 description: GAP: "S3"
+    isomorphic?: false
+    Galois width: 3
 
 G#72 description: GAP: "S4"
     isomorphic?: true
@@ -243,9 +241,8 @@ G#79 description: GAP: "S4"
 G#80 description: GAP: "S4"
     isomorphic?: true
 
-G#81 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#81 description: GAP: "S4"
+    isomorphic?: true
 
 G#82 description: GAP: "S4"
     isomorphic?: true
@@ -304,8 +301,7 @@ G#99 description: GAP: "S4"
 G#100 description: GAP: "S4"
     isomorphic?: true
 
-number of incomplete correspondences: 6
-false count: 6
+number of incomplete correspondences: 3
+false count: 3
 Galois width counts:
-gw = 2 occurred 1 times
-gw = 3 occurred 5 times
+gw = 3 occurred 3 times

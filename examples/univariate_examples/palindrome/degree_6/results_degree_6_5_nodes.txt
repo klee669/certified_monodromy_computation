@@ -1,42 +1,43 @@
 G#1 description: GAP: "C2 x S4"
     isomorphic?: true
 
-⚠️ Error at i=2: ErrorException("Step size h too small (underflow)")
+G#2 description: GAP: "C2 x S4"
+    isomorphic?: true
 
-G#3 description: GAP: "D8"
-    isomorphic?: false
-    Galois width: 2
+G#3 description: GAP: "C2 x S4"
+    isomorphic?: true
 
-G#4 description: GAP: "S4"
+G#4 description: GAP: "1"
     isomorphic?: false
-    Galois width: 3
+    Galois width: 1
 
-G#5 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#5 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#6 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#7 description: GAP: "S3"
+G#7 description: GAP: "C2"
     isomorphic?: false
-    Galois width: 3
+    Galois width: 2
 
 G#8 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#9 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
-
-G#10 description: GAP: "S3"
+G#9 description: GAP: "C2 x A4"
     isomorphic?: false
     Galois width: 3
+
+G#10 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#11 description: GAP: "C2 x S4"
     isomorphic?: true
 
-⚠️ Error at i=12: ErrorException("Step size h too small (underflow)")
+G#12 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#13 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -48,25 +49,25 @@ G#15 description: GAP: "C2"
     isomorphic?: false
     Galois width: 2
 
-G#16 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
+G#16 description: GAP: "C2 x S4"
+    isomorphic?: true
 
-G#17 description: GAP: "C2"
+G#17 description: GAP: "C2 x S4"
+    isomorphic?: true
+
+⚠️ Error at i=18: ErrorException("Step size h too small (underflow)")
+
+G#19 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
+
+G#20 description: GAP: "D8"
     isomorphic?: false
     Galois width: 2
 
-G#18 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#19 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#20 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#21 description: GAP: "C2 x S4"
-    isomorphic?: true
+G#21 description: GAP: "S3"
+    isomorphic?: false
+    Galois width: 3
 
 G#22 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -74,35 +75,36 @@ G#22 description: GAP: "C2 x S4"
 G#23 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#24 description: GAP: "C2 x A4"
-    isomorphic?: false
-    Galois width: 3
+G#24 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#25 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#26 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#27 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#28 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#29 description: GAP: "1"
+G#26 description: GAP: "1"
     isomorphic?: false
     Galois width: 1
+
+G#27 description: GAP: "D8"
+    isomorphic?: false
+    Galois width: 2
+
+G#28 description: GAP: "C2 x A4"
+    isomorphic?: false
+    Galois width: 3
+
+G#29 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#30 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#31 description: GAP: "C3"
-    isomorphic?: false
-    Galois width: 3
-
-G#32 description: GAP: "C2 x S4"
+G#31 description: GAP: "C2 x S4"
     isomorphic?: true
+
+G#32 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#33 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -113,23 +115,21 @@ G#34 description: GAP: "C2 x S4"
 G#35 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#36 description: GAP: "C2 x S4"
+G#36 description: GAP: "D8"
+    isomorphic?: false
+    Galois width: 2
+
+G#37 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#37 description: GAP: "C2 x A4"
-    isomorphic?: false
-    Galois width: 3
-
-G#38 description: GAP: "C2 x A4"
-    isomorphic?: false
-    Galois width: 3
+G#38 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#39 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#40 description: GAP: "C2 x A4"
-    isomorphic?: false
-    Galois width: 3
+G#40 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#41 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -146,39 +146,36 @@ G#44 description: GAP: "C2 x S4"
 G#45 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#46 description: GAP: "S3"
+G#46 description: GAP: "C2"
     isomorphic?: false
-    Galois width: 3
+    Galois width: 2
 
-G#47 description: GAP: "S4"
-    isomorphic?: false
-    Galois width: 3
+G#47 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#48 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#49 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
+G#49 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#50 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#51 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#51 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#52 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#53 description: GAP: "C2 x S4"
-    isomorphic?: true
+G#53 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#54 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#55 description: GAP: "C2 x S4"
-    isomorphic?: true
+⚠️ Error at i=55: ErrorException("Step size h too small (underflow)")
 
 G#56 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -186,12 +183,12 @@ G#56 description: GAP: "C2 x S4"
 G#57 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#58 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#59 description: GAP: "1"
+G#58 description: GAP: "C2 x A4"
     isomorphic?: false
-    Galois width: 1
+    Galois width: 3
+
+G#59 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#60 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -199,8 +196,9 @@ G#60 description: GAP: "C2 x S4"
 G#61 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#62 description: GAP: "C2 x S4"
-    isomorphic?: true
+G#62 description: GAP: "C2 x A4"
+    isomorphic?: false
+    Galois width: 3
 
 G#63 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -208,12 +206,12 @@ G#63 description: GAP: "C2 x S4"
 G#64 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#65 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#66 description: GAP: "S4"
+G#65 description: GAP: "C2 x A4"
     isomorphic?: false
     Galois width: 3
+
+G#66 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#67 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -221,9 +219,8 @@ G#67 description: GAP: "C2 x S4"
 G#68 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#69 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
+G#69 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#70 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -231,12 +228,12 @@ G#70 description: GAP: "C2 x S4"
 G#71 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#72 description: GAP: "1"
+G#72 description: GAP: "C2 x S4"
+    isomorphic?: true
+
+G#73 description: GAP: "1"
     isomorphic?: false
     Galois width: 1
-
-G#73 description: GAP: "C2 x S4"
-    isomorphic?: true
 
 G#74 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -251,28 +248,31 @@ G#76 description: GAP: "C2 x S4"
 G#77 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#78 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#79 description: GAP: "C2"
+G#78 description: GAP: "C2 x A4"
     isomorphic?: false
-    Galois width: 2
+    Galois width: 3
 
-G#80 description: GAP: "C2 x S4"
+G#79 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#81 description: GAP: "C2 x S4"
-    isomorphic?: true
+G#80 description: GAP: "A4"
+    isomorphic?: false
+    Galois width: 3
+
+G#81 description: GAP: "C2 x A4"
+    isomorphic?: false
+    Galois width: 3
 
 G#82 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#83 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#84 description: GAP: "S4"
+G#83 description: GAP: "1"
     isomorphic?: false
-    Galois width: 3
+    Galois width: 1
+
+G#84 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#85 description: GAP: "C2 x S4"
     isomorphic?: true
@@ -287,50 +287,50 @@ G#88 description: GAP: "C2 x A4"
     isomorphic?: false
     Galois width: 3
 
-G#89 description: GAP: "C2 x S4"
-    isomorphic?: true
+G#89 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
 
 G#90 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#91 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
-
-G#92 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
-
-G#93 description: GAP: "C2 x S4"
+G#91 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#94 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
+G#92 description: GAP: "C2 x S4"
+    isomorphic?: true
 
-G#95 description: GAP: "C2 x A4"
+G#93 description: GAP: "S4"
     isomorphic?: false
     Galois width: 3
+
+G#94 description: GAP: "C2 x S4"
+    isomorphic?: true
+
+G#95 description: GAP: "C2 x S4"
+    isomorphic?: true
 
 G#96 description: GAP: "C2 x S4"
     isomorphic?: true
 
-G#97 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#98 description: GAP: "C2 x S4"
-    isomorphic?: true
-
-G#99 description: GAP: "1"
+G#97 description: GAP: "C2"
     isomorphic?: false
-    Galois width: 1
+    Galois width: 2
 
-G#100 description: GAP: "C2 x S4"
+G#98 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
+
+G#99 description: GAP: "C2 x S4"
     isomorphic?: true
 
-number of incomplete correspondences: 21
+G#100 description: GAP: "D8"
+    isomorphic?: false
+    Galois width: 2
+
+number of incomplete correspondences: 19
 false count: 32
 Galois width counts:
-gw = 1 occurred 10 times
-gw = 2 occurred 7 times
-gw = 3 occurred 15 times
+gw = 1 occurred 7 times
+gw = 2 occurred 11 times
+gw = 3 occurred 14 times

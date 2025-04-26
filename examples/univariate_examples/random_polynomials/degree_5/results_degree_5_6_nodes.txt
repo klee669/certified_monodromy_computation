@@ -1,0 +1,107 @@
+G#1 description: GAP: "S5"
+    isomorphic?: true
+
+G#2 description: GAP: "S5"
+    isomorphic?: true
+
+G#3 description: GAP: "S5"
+    isomorphic?: true
+
+G#4 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
+
+G#5 description: GAP: "S5"
+    isomorphic?: true
+
+G#6 description: GAP: "S5"
+    isomorphic?: true
+
+G#7 description: GAP: "S5"
+    isomorphic?: true
+
+G#8 description: GAP: "S5"
+    isomorphic?: true
+
+G#9 description: GAP: "S5"
+    isomorphic?: true
+
+G#10 description: GAP: "S5"
+    isomorphic?: true
+
+G#11 description: GAP: "S5"
+    isomorphic?: true
+
+G#12 description: GAP: "S5"
+    isomorphic?: true
+
+G#13 description: GAP: "S5"
+    isomorphic?: true
+
+G#14 description: GAP: "S5"
+    isomorphic?: true
+
+G#15 description: GAP: "S5"
+    isomorphic?: true
+
+G#16 description: GAP: "S5"
+    isomorphic?: true
+
+G#17 description: GAP: "S5"
+    isomorphic?: true
+
+G#18 description: GAP: "S3"
+    isomorphic?: false
+    Galois width: 3
+
+G#19 description: GAP: "S5"
+    isomorphic?: true
+
+G#20 description: GAP: "S5"
+    isomorphic?: true
+
+G#21 description: GAP: "S5"
+    isomorphic?: true
+
+G#22 description: GAP: "S5"
+    isomorphic?: true
+
+G#23 description: GAP: "S5"
+    isomorphic?: true
+
+G#24 description: GAP: "S5"
+    isomorphic?: true
+
+G#25 description: GAP: "S5"
+    isomorphic?: true
+
+G#26 description: GAP: "S5"
+    isomorphic?: true
+
+G#27 description: GAP: "S5"
+    isomorphic?: true
+
+G#28 description: GAP: "S5"
+    isomorphic?: true
+
+G#29 description: GAP: "S5"
+    isomorphic?: true
+
+G#30 description: GAP: "S5"
+    isomorphic?: true
+
+G#31 description: GAP: "S5"
+    isomorphic?: true
+
+G#32 description: GAP: "S5"
+    isomorphic?: true
+
+G#33 description: GAP: "S5"
+    isomorphic?: true
+
+G#34 description: GAP: "S5"
+    isomorphic?: true
+
+G#35 description: GAP: "S5"
+    isomorphic?: true
+

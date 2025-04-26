@@ -1,0 +1,42 @@
+G#2 description: GAP: "S8"
+    isomorphic?: true
+
+G#5 description: GAP: "S8"
+    isomorphic?: true
+
+G#10 description: GAP: "S8"
+    isomorphic?: true
+
+G#28 description: GAP: "S8"
+    isomorphic?: true
+
+G#34 description: GAP: "S8"
+    isomorphic?: true
+
+G#42 description: GAP: "S8"
+    isomorphic?: true
+
+G#43 description: GAP: "S8"
+    isomorphic?: true
+
+G#49 description: GAP: "S8"
+    isomorphic?: true
+
+G#50 description: GAP: "S8"
+    isomorphic?: true
+
+G#51 description: GAP: "S8"
+    isomorphic?: true
+
+G#56 description: GAP: "S8"
+    isomorphic?: true
+
+G#67 description: GAP: "S8"
+    isomorphic?: true
+
+G#70 description: GAP: "S8"
+    isomorphic?: true
+
+G#74 description: GAP: "S8"
+    isomorphic?: true
+
