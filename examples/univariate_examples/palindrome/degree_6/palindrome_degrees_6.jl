@@ -26,7 +26,7 @@ GAP.evalstr(cmd)
 @gap("GaloisWidth(G);") #3
 
 
-for n_nodes in 3:7
+for n_nodes in 3:6
 
     result_name = "results_degree_6_$(n_nodes)_nodes.txt"
     result_filename = joinpath(path_name, result_name)
@@ -39,7 +39,8 @@ for n_nodes in 3:7
         false_count = 0;
         fail_correspondence_count = 0;
         tracking_error_count = 0;
-        for i in 1:100
+        i = 1;
+        while i <= 100
             try
                 v1 = vertex(bp,[x])
                 vs = parameter_points(v1, 4, n_nodes)
@@ -77,13 +78,13 @@ for n_nodes in 3:7
                 end
                 write(file, "\n")
                 flush(file)
+                i = i+1  
     
-                catch e
-                    println("⚠️ Error at i=$i: $(e)")
-                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
-                    i = i-1;
-                    continue  
-            end
+            catch e
+                println("⚠️ Error at i=$i: $(e)")
+#                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
+            continue
+        end
                 
         end
         write(file, "number of incomplete correspondences: $fail_correspondence_count\n")

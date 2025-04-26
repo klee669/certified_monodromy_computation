@@ -40,7 +40,8 @@ for n_nodes in 3:6
         false_count = 0;
         fail_correspondence_count = 0;
         tracking_error_count = 0;
-        for i in 1:100
+        i = 1;
+        while i <= 100
             try
                 v1 = vertex(bp,[x])
                 vs = parameter_points(v1, 3, n_nodes)
@@ -78,11 +79,11 @@ for n_nodes in 3:6
                 write(file, "\n")
                 flush(file)
     
+                i = i+1  
                 catch e
                     println("⚠️ Error at i=$i: $(e)")
 #                    write(file, "⚠️ Error at i=$i: $(e)\n\n")
-                    i = i-1;
-                    continue  
+                continue
             end
                 
         end

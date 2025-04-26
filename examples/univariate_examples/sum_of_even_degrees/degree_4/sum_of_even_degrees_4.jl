@@ -18,14 +18,22 @@ x = [CCi(.532331,-.457645)]
 v1 = vertex(bp,[x])
 n_nodes = 6;
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/degree_4/even_degree_sums_4.txt\");")
+path_name = joinpath(@__DIR__)
+filename = joinpath(path_name, "even_degree_sums_4.txt")
+cmd = string("Read(\"", filename, "\");")
+GAP.evalstr(cmd)
 @gap("G;")
 @gap("StructureDescription(G);") # D8
 @gap("GaloisWidth(G);") # 2
 
 
-path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/degree_4/results_$(n_nodes)_nodes.txt")
-using GAP
+
+for n_nodes in 3:6
+
+    result_name = "results_degree_4_$(n_nodes)_nodes.txt"
+    result_filename = joinpath(path_name, result_name)
+    path = result_filename
+    using GAP
 gw_counts = Dict{Int, Int}()
 
 #@gap("LoadPackage(\"sonata\");")
@@ -33,7 +41,8 @@ open(path, "w") do file
     false_count = 0;
     fail_correspondence_count = 0;
     tracking_error_count = 0;
-    for i in 1:100
+    i = 1;
+    while i <= 100
         try
             v1 = vertex(bp,[x])
             vs = parameter_points(v1, 3, n_nodes)
@@ -42,11 +51,15 @@ open(path, "w") do file
                 fail_correspondence_count = fail_correspondence_count+1;
             end
 
-            perms=get_permutations(length(edges[1].correspondence12),edges)
-            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/degree_4/even_degree_sums_4_$(n_nodes)nodes", "H")
+            dummy_name = "even_degree_sums_4_$(n_nodes)nodes"
+            save_path = joinpath(path_name, dummy_name)
 
-            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees/degree_4/even_degree_sums_4_$(n_nodes)nodes.txt")
-            cmd = string("Read(\"", filename, "\");")
+            perms=get_permutations(length(edges[1].correspondence12),edges)
+            str_convert(perms, save_path, "H")
+#            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4_$(n_nodes)nodes", "H")
+    
+            dummy_filename = joinpath(path_name, dummy_name * ".txt")
+            cmd = string("Read(\"", dummy_filename, "\");")
             GAP.evalstr(cmd)
             A=@gap("StructureDescription(H);") 
             println(A);
@@ -66,11 +79,11 @@ open(path, "w") do file
             end
             write(file, "\n")
             flush(file)
+            i = i + 1
 
             catch e
                 println("⚠️ Error at i=$i: $(e)")
 #                write(file, "⚠️ Error at i=$i: $(e)\n\n")
-            i = i-1;
             continue  
         end
             
@@ -85,3 +98,4 @@ open(path, "w") do file
 end
 
 
+end

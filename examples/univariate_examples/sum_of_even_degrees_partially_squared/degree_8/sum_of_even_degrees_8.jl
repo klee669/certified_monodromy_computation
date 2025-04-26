@@ -27,8 +27,9 @@ GAP.evalstr(cmd)
 
 
 for n_nodes in 3:6
-
-    path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_8/results_degree_8_$(n_nodes)_nodes.txt")
+    result_name = "results_degree_8_$(n_nodes)_nodes.txt"
+    result_filename = joinpath(path_name, result_name)
+    path = result_filename
     using GAP
     gw_counts = Dict{Int, Int}()
     
@@ -37,8 +38,9 @@ for n_nodes in 3:6
         false_count = 0;
         fail_correspondence_count = 0;
         tracking_error_count = 0;
-        for i in 1:100
-            try
+        i = 1;
+        while i <= 100
+                try
                 v1 = vertex(bp,[x])
                 vs = parameter_points(v1, 5, n_nodes)
                 edges = track_complete_graph(F, r, vs,8)
@@ -46,7 +48,7 @@ for n_nodes in 3:6
                     fail_correspondence_count = fail_correspondence_count+1;
                 end
     
-                dummy_name = "even_degree_sums_6_$(n_nodes)nodes"
+                dummy_name = "even_degree_sums_8_$(n_nodes)nodes"
                 save_path = joinpath(path_name, dummy_name)
     
                 perms=get_permutations(length(edges[1].correspondence12),edges)
@@ -74,11 +76,10 @@ for n_nodes in 3:6
                 end
                 write(file, "\n")
                 flush(file)
-    
+                i = i + 1;
                 catch e
                     println("⚠️ Error at i=$i: $(e)")
                     #                write(file, "⚠️ Error at i=$i: $(e)\n\n")
-                                i = i-1;
                 continue  
             end
                 
