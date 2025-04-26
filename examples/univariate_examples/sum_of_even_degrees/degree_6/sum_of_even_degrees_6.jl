@@ -1,4 +1,4 @@
-include("../../../src/certified_monodromy_computation.jl")
+include("../../../../src/certified_monodromy_computation.jl")
 
 
 @setupfield begin
