@@ -18,13 +18,19 @@ x = [CCi(.0720838,-.481488)]
 v1 = vertex(bp,[x])
 n_nodes = 6;
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/random_polynomials_3.txt\");")
+path_name = joinpath(@__DIR__)
+filename = joinpath(path_name, "random_polynomials_3.txt")
+cmd = string("Read(\"", filename, "\");")
+GAP.evalstr(cmd)
 @gap("G;")
 @gap("StructureDescription(G);") # S3
 @gap("GaloisWidth(G);") # 3
 
 
-path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/results_$(n_nodes)_nodes.txt")
+for n_nodes in 3:6
+    result_name = "results_degree_3_$(n_nodes)_nodes.txt"
+    result_filename = joinpath(path_name, result_name)
+    path = result_filename
 using GAP
 gw_counts = Dict{Int, Int}()
 
@@ -42,11 +48,15 @@ open(path, "w") do file
                 fail_correspondence_count = fail_correspondence_count+1;
             end
 
-            perms=get_permutations(length(edges[1].correspondence12),edges)
-            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/random_polynomials_3_$(n_nodes)nodes", "H")
+            dummy_name = "random_polynomials_3_$(n_nodes)nodes"
+            save_path = joinpath(path_name, dummy_name)
 
-            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/random_polynomials/degree_3/random_polynomials_3_$(n_nodes)nodes.txt")
-            cmd = string("Read(\"", filename, "\");")
+            perms=get_permutations(length(edges[1].correspondence12),edges)
+            str_convert(perms, save_path, "H")
+#            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4_$(n_nodes)nodes", "H")
+    
+            dummy_filename = joinpath(path_name, dummy_name * ".txt")
+            cmd = string("Read(\"", dummy_filename, "\");")
             GAP.evalstr(cmd)
             A=@gap("StructureDescription(H);") 
             println(A);
@@ -85,3 +95,4 @@ open(path, "w") do file
 end
 
 
+end

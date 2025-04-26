@@ -12,19 +12,25 @@ end
 CCi = _CCi
 r = .1;
 
+
 F = hcat([c3^2*x^4+c2*x^2+c1^2])
 bp = [CCi(10/3), CCi(1/3), CCi(5/4)]
 x = [CCi(.933811,.784519)]
 v1 = vertex(bp,[x])
-n_nodes = 7;
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4.txt\");")
+
+path_name = joinpath(@__DIR__)
+filename = joinpath(path_name, "even_degree_sums_4.txt")
+cmd = string("Read(\"", filename, "\");")
+GAP.evalstr(cmd)
 @gap("G;")
 @gap("StructureDescription(G);") # C2 x C2
 @gap("GaloisWidth(G);") #2
 
 for n_nodes in 3:6
-    path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/results_degree_4_$(n_nodes)_nodes.txt")
+    result_name = "results_degree_4_$(n_nodes)_nodes.txt"
+    result_filename = joinpath(path_name, result_name)
+    path = result_filename
 
 using GAP
 gw_counts = Dict{Int, Int}()
@@ -37,17 +43,21 @@ open(path, "w") do file
     for i in 1:100
         try
             v1 = vertex(bp,[x])
-            vs = parameter_points(v1, 4, n_nodes)
-            edges = track_complete_graph(F, r, vs,6)
-            if length(edges[1].correspondence12) != 6
+            vs = parameter_points(v1, 3, n_nodes)
+            edges = track_complete_graph(F, r, vs,4)
+            if length(edges[1].correspondence12) != 4
                 fail_correspondence_count = fail_correspondence_count+1;
             end
 
+            dummy_name = "even_degree_sums_4_$(n_nodes)nodes"
+            save_path = joinpath(path_name, dummy_name)
+
             perms=get_permutations(length(edges[1].correspondence12),edges)
-            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4_$(n_nodes)nodes", "H")
+            str_convert(perms, save_path, "H")
+#            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4_$(n_nodes)nodes", "H")
     
-            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4_$(n_nodes)nodes.txt")
-        cmd = string("Read(\"", filename, "\");")
+            dummy_filename = joinpath(path_name, dummy_name * ".txt")
+            cmd = string("Read(\"", dummy_filename, "\");")
             GAP.evalstr(cmd)
             A=@gap("StructureDescription(H);") 
             println(A);

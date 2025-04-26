@@ -18,13 +18,18 @@ x = [CCi(.933811,.784519)]
 v1 = vertex(bp,[x])
 n_nodes = 7;
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_6/even_degree_sums_6.txt\");")
+path_name = joinpath(@__DIR__)
+filename = joinpath(path_name, "even_degree_sums_6.txt")
+cmd = string("Read(\"", filename, "\");")
+GAP.evalstr(cmd)
 @gap("G;")
 @gap("StructureDescription(G);") # S4
 @gap("GaloisWidth(G);") #3
 
 for n_nodes in 3:6
-    path = safe_path("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_6/results_degree_6_$(n_nodes)_nodes.txt")
+    result_name = "results_degree_6_$(n_nodes)_nodes.txt"
+    result_filename = joinpath(path_name, result_name)
+    path = result_filename
 
 using GAP
 gw_counts = Dict{Int, Int}()
@@ -43,11 +48,15 @@ open(path, "w") do file
                 fail_correspondence_count = fail_correspondence_count+1;
             end
 
+            dummy_name = "even_degree_sums_6_$(n_nodes)nodes"
+            save_path = joinpath(path_name, dummy_name)
+
             perms=get_permutations(length(edges[1].correspondence12),edges)
-            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_6/even_degree_sums_6_$(n_nodes)nodes", "H")
+            str_convert(perms, save_path, "H")
+#            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4_$(n_nodes)nodes", "H")
     
-            filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_6/even_degree_sums_6_$(n_nodes)nodes.txt")
-        cmd = string("Read(\"", filename, "\");")
+            dummy_filename = joinpath(path_name, dummy_name * ".txt")
+            cmd = string("Read(\"", dummy_filename, "\");")
             GAP.evalstr(cmd)
             A=@gap("StructureDescription(H);") 
             println(A);

@@ -17,7 +17,10 @@ bp = [CCi(1/2), CCi(9/7), CCi(9/7), CCi(45/7), CCi(45/56)]
 x = [CCi(.532331,-.457645)]
 v1 = vertex(bp,[x])
 
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_8/even_degree_sums_8.txt\");")
+path_name = joinpath(@__DIR__)
+filename = joinpath(path_name, "even_degree_sums_8.txt")
+cmd = string("Read(\"", filename, "\");")
+GAP.evalstr(cmd)
 @gap("G;")
 @gap("StructureDescription(G);") # (((C2 x C2 x C2) : (C2 x C2)) : C3) : C2
 @gap("GaloisWidth(G);") #3
@@ -43,11 +46,15 @@ for n_nodes in 3:6
                     fail_correspondence_count = fail_correspondence_count+1;
                 end
     
-                perms=get_permutations(length(edges[1].correspondence12),edges)
-                str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_8/even_degree_sums_8_$(n_nodes)nodes", "H")
+                dummy_name = "even_degree_sums_6_$(n_nodes)nodes"
+                save_path = joinpath(path_name, dummy_name)
     
-                filename = expanduser("~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_8/even_degree_sums_8_$(n_nodes)nodes.txt")
-                cmd = string("Read(\"", filename, "\");")
+                perms=get_permutations(length(edges[1].correspondence12),edges)
+                str_convert(perms, save_path, "H")
+    #            str_convert(perms, "~/Documents/GitHub/certified_monodromy_comp/examples/univariate_examples/sum_of_even_degrees_partially_squared/degree_4/even_degree_sums_4_$(n_nodes)nodes", "H")
+        
+                dummy_filename = joinpath(path_name, dummy_name * ".txt")
+                cmd = string("Read(\"", dummy_filename, "\");")
                 GAP.evalstr(cmd)
                 A=@gap("StructureDescription(H);") 
                 println(A);
