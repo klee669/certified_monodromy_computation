@@ -1,2 +1,2 @@
-p0:= PermList([1]);
+p0:= PermList([2, 3, 5, 1, 4]);
 H:=Group(p0);

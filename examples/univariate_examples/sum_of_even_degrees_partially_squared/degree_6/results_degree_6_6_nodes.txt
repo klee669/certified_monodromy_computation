@@ -52,8 +52,9 @@ G#17 description: GAP: "S4"
 G#18 description: GAP: "S4"
     isomorphic?: true
 
-G#19 description: GAP: "S4"
-    isomorphic?: true
+G#19 description: GAP: "D8"
+    isomorphic?: false
+    Galois width: 2
 
 G#20 description: GAP: "S4"
     isomorphic?: true
@@ -118,9 +119,8 @@ G#39 description: GAP: "S4"
 G#40 description: GAP: "S4"
     isomorphic?: true
 
-G#41 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#41 description: GAP: "S4"
+    isomorphic?: true
 
 G#42 description: GAP: "S4"
     isomorphic?: true
@@ -146,14 +146,16 @@ G#48 description: GAP: "S4"
 G#49 description: GAP: "S4"
     isomorphic?: true
 
-G#50 description: GAP: "S4"
-    isomorphic?: true
+G#50 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#51 description: GAP: "S4"
     isomorphic?: true
 
-G#52 description: GAP: "S4"
-    isomorphic?: true
+G#52 description: GAP: "C3"
+    isomorphic?: false
+    Galois width: 3
 
 G#53 description: GAP: "S4"
     isomorphic?: true
@@ -173,8 +175,9 @@ G#57 description: GAP: "S4"
 G#58 description: GAP: "S4"
     isomorphic?: true
 
-G#59 description: GAP: "S4"
-    isomorphic?: true
+G#59 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#60 description: GAP: "S4"
     isomorphic?: true
@@ -182,9 +185,8 @@ G#60 description: GAP: "S4"
 G#61 description: GAP: "S4"
     isomorphic?: true
 
-G#62 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#62 description: GAP: "S4"
+    isomorphic?: true
 
 G#63 description: GAP: "S4"
     isomorphic?: true
@@ -210,9 +212,8 @@ G#69 description: GAP: "S4"
 G#70 description: GAP: "S4"
     isomorphic?: true
 
-G#71 description: GAP: "S3"
-    isomorphic?: false
-    Galois width: 3
+G#71 description: GAP: "S4"
+    isomorphic?: true
 
 G#72 description: GAP: "S4"
     isomorphic?: true
@@ -301,7 +302,9 @@ G#99 description: GAP: "S4"
 G#100 description: GAP: "S4"
     isomorphic?: true
 
-number of incomplete correspondences: 3
-false count: 3
+number of incomplete correspondences: 4
+false count: 4
 Galois width counts:
-gw = 3 occurred 3 times
+gw = 1 occurred 2 times
+gw = 2 occurred 1 times
+gw = 3 occurred 1 times

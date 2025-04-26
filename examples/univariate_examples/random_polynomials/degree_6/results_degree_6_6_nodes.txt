@@ -19,8 +19,9 @@ G#6 description: GAP: "S6"
 G#7 description: GAP: "S6"
     isomorphic?: true
 
-G#8 description: GAP: "S6"
-    isomorphic?: true
+G#8 description: GAP: "S5"
+    isomorphic?: false
+    Galois width: 5
 
 G#9 description: GAP: "S6"
     isomorphic?: true
@@ -37,8 +38,9 @@ G#12 description: GAP: "S6"
 G#13 description: GAP: "S6"
     isomorphic?: true
 
-G#14 description: GAP: "S6"
-    isomorphic?: true
+G#14 description: GAP: "S5"
+    isomorphic?: false
+    Galois width: 5
 
 G#15 description: GAP: "S6"
     isomorphic?: true
@@ -73,9 +75,8 @@ G#24 description: GAP: "S6"
 G#25 description: GAP: "S6"
     isomorphic?: true
 
-G#26 description: GAP: "S5"
-    isomorphic?: false
-    Galois width: 5
+G#26 description: GAP: "S6"
+    isomorphic?: true
 
 G#27 description: GAP: "S6"
     isomorphic?: true
@@ -86,8 +87,9 @@ G#28 description: GAP: "S6"
 G#29 description: GAP: "S6"
     isomorphic?: true
 
-G#30 description: GAP: "S6"
-    isomorphic?: true
+G#30 description: GAP: "S5"
+    isomorphic?: false
+    Galois width: 5
 
 G#31 description: GAP: "S6"
     isomorphic?: true
@@ -122,17 +124,20 @@ G#40 description: GAP: "S6"
 G#41 description: GAP: "S6"
     isomorphic?: true
 
-G#42 description: GAP: "S6"
-    isomorphic?: true
+G#42 description: GAP: "A6"
+    isomorphic?: false
+    Galois width: 6
 
 G#43 description: GAP: "S6"
     isomorphic?: true
 
-G#44 description: GAP: "S6"
-    isomorphic?: true
+G#44 description: GAP: "S3"
+    isomorphic?: false
+    Galois width: 3
 
-G#45 description: GAP: "S6"
-    isomorphic?: true
+G#45 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
 
 G#46 description: GAP: "S6"
     isomorphic?: true
@@ -152,9 +157,8 @@ G#50 description: GAP: "S6"
 G#51 description: GAP: "S6"
     isomorphic?: true
 
-G#52 description: GAP: "S5"
-    isomorphic?: false
-    Galois width: 5
+G#52 description: GAP: "S6"
+    isomorphic?: true
 
 G#53 description: GAP: "S6"
     isomorphic?: true
@@ -171,9 +175,8 @@ G#56 description: GAP: "S6"
 G#57 description: GAP: "S6"
     isomorphic?: true
 
-G#58 description: GAP: "S5"
-    isomorphic?: false
-    Galois width: 5
+G#58 description: GAP: "S6"
+    isomorphic?: true
 
 G#59 description: GAP: "S6"
     isomorphic?: true
@@ -220,15 +223,16 @@ G#72 description: GAP: "S6"
 G#73 description: GAP: "S6"
     isomorphic?: true
 
-G#74 description: GAP: "S6"
-    isomorphic?: true
+G#74 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#75 description: GAP: "S6"
     isomorphic?: true
 
-G#76 description: GAP: "S5"
+G#76 description: GAP: "A6"
     isomorphic?: false
-    Galois width: 5
+    Galois width: 6
 
 G#77 description: GAP: "S6"
     isomorphic?: true
@@ -254,6 +258,9 @@ G#83 description: GAP: "S6"
 G#84 description: GAP: "S6"
     isomorphic?: true
 
+G#85 description: GAP: "S6"
+    isomorphic?: true
+
 G#86 description: GAP: "S6"
     isomorphic?: true
 
@@ -263,18 +270,21 @@ G#87 description: GAP: "S6"
 G#88 description: GAP: "S6"
     isomorphic?: true
 
+G#89 description: GAP: "S6"
+    isomorphic?: true
+
 G#90 description: GAP: "S6"
     isomorphic?: true
 
-G#91 description: GAP: "S6"
-    isomorphic?: true
+G#91 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#92 description: GAP: "S6"
     isomorphic?: true
 
-G#93 description: GAP: "S5"
-    isomorphic?: false
-    Galois width: 5
+G#93 description: GAP: "S6"
+    isomorphic?: true
 
 G#94 description: GAP: "S6"
     isomorphic?: true
@@ -285,9 +295,8 @@ G#95 description: GAP: "S6"
 G#96 description: GAP: "S6"
     isomorphic?: true
 
-G#97 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
+G#97 description: GAP: "S6"
+    isomorphic?: true
 
 G#98 description: GAP: "S6"
     isomorphic?: true
@@ -298,8 +307,10 @@ G#99 description: GAP: "S6"
 G#100 description: GAP: "S6"
     isomorphic?: true
 
-number of incomplete correspondences: 6
-false count: 6
+number of incomplete correspondences: 7
+false count: 9
 Galois width counts:
-gw = 1 occurred 1 times
-gw = 5 occurred 5 times
+gw = 1 occurred 2 times
+gw = 3 occurred 2 times
+gw = 5 occurred 3 times
+gw = 6 occurred 2 times

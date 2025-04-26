@@ -7,7 +7,8 @@ G#2 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#3 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-⚠️ Error at i=4: ErrorException("Matrix singular or cannot be inverted numerically")
+G#4 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 G#5 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -30,12 +31,12 @@ G#10 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#11 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-G#12 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
-    isomorphic?: true
-
-G#13 description: GAP: "S4"
+G#12 description: GAP: "1"
     isomorphic?: false
-    Galois width: 3
+    Galois width: 1
+
+G#13 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 G#14 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -49,10 +50,12 @@ G#16 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#17 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-⚠️ Error at i=18: ErrorException("Matrix singular or cannot be inverted numerically")
-
-G#19 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+G#18 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
+
+G#19 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
 
 G#20 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -129,7 +132,8 @@ G#43 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#44 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-⚠️ Error at i=45: ErrorException("Step size h too small (underflow)")
+G#45 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 G#46 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -170,7 +174,8 @@ G#57 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#58 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-⚠️ Error at i=59: ErrorException("Matrix singular or cannot be inverted numerically")
+G#59 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 G#60 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -214,7 +219,8 @@ G#72 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#73 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-⚠️ Error at i=74: ErrorException("Matrix singular or cannot be inverted numerically")
+G#74 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 G#75 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -225,14 +231,15 @@ G#76 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#77 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-G#78 description: GAP: "S4"
+G#78 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
+
+G#79 description: GAP: "S4"
     isomorphic?: false
     Galois width: 3
 
-G#79 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+G#80 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
-
-⚠️ Error at i=80: ErrorException("Step size h too small (underflow)")
 
 G#81 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -243,7 +250,8 @@ G#82 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#83 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-⚠️ Error at i=84: ErrorException("Matrix singular or cannot be inverted numerically")
+G#84 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 G#85 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -269,7 +277,8 @@ G#91 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#92 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-⚠️ Error at i=93: ErrorException("Matrix singular or cannot be inverted numerically")
+G#93 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 G#94 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
@@ -289,11 +298,11 @@ G#98 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
 G#99 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
     isomorphic?: true
 
-G#100 description: GAP: "S4"
-    isomorphic?: false
-    Galois width: 3
+G#100 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: true
 
 number of incomplete correspondences: 3
 false count: 3
 Galois width counts:
-gw = 3 occurred 3 times
+gw = 1 occurred 1 times
+gw = 3 occurred 2 times

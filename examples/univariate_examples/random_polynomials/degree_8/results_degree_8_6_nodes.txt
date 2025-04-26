@@ -1,22 +1,156 @@
+G#1 description: GAP: "S8"
+    isomorphic?: true
+
 G#2 description: GAP: "S8"
     isomorphic?: true
+
+G#3 description: GAP: "S8"
+    isomorphic?: true
+
+G#4 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#5 description: GAP: "S8"
     isomorphic?: true
 
+G#6 description: GAP: "S8"
+    isomorphic?: true
+
+G#7 description: GAP: "S8"
+    isomorphic?: true
+
+G#8 description: GAP: "S8"
+    isomorphic?: true
+
+G#9 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
 G#10 description: GAP: "S8"
+    isomorphic?: true
+
+G#11 description: GAP: "S8"
+    isomorphic?: true
+
+G#12 description: GAP: "S8"
+    isomorphic?: true
+
+G#13 description: GAP: "S8"
+    isomorphic?: true
+
+G#14 description: GAP: "S8"
+    isomorphic?: true
+
+G#15 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
+
+G#16 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#17 description: GAP: "S8"
+    isomorphic?: true
+
+G#18 description: GAP: "S8"
+    isomorphic?: true
+
+G#19 description: GAP: "S8"
+    isomorphic?: true
+
+G#20 description: GAP: "S8"
+    isomorphic?: true
+
+G#21 description: GAP: "S8"
+    isomorphic?: true
+
+G#22 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
+
+G#23 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
+
+G#24 description: GAP: "S8"
+    isomorphic?: true
+
+G#25 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
+
+G#26 description: GAP: "S8"
+    isomorphic?: true
+
+G#27 description: GAP: "S8"
     isomorphic?: true
 
 G#28 description: GAP: "S8"
     isomorphic?: true
 
+G#29 description: GAP: "S8"
+    isomorphic?: true
+
+G#30 description: GAP: "S6"
+    isomorphic?: false
+    Galois width: 6
+
+G#31 description: GAP: "S8"
+    isomorphic?: true
+
+G#32 description: GAP: "S8"
+    isomorphic?: true
+
+G#33 description: GAP: "S8"
+    isomorphic?: true
+
 G#34 description: GAP: "S8"
+    isomorphic?: true
+
+G#35 description: GAP: "S8"
+    isomorphic?: true
+
+G#36 description: GAP: "S8"
+    isomorphic?: true
+
+G#37 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
+
+G#38 description: GAP: "S8"
+    isomorphic?: true
+
+G#39 description: GAP: "S8"
+    isomorphic?: true
+
+G#40 description: GAP: "S5"
+    isomorphic?: false
+    Galois width: 5
+
+G#41 description: GAP: "S8"
     isomorphic?: true
 
 G#42 description: GAP: "S8"
     isomorphic?: true
 
 G#43 description: GAP: "S8"
+    isomorphic?: true
+
+G#44 description: GAP: "S8"
+    isomorphic?: true
+
+G#45 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
+
+G#46 description: GAP: "S8"
+    isomorphic?: true
+
+G#47 description: GAP: "S8"
+    isomorphic?: true
+
+G#48 description: GAP: "S8"
     isomorphic?: true
 
 G#49 description: GAP: "S8"
@@ -28,15 +162,173 @@ G#50 description: GAP: "S8"
 G#51 description: GAP: "S8"
     isomorphic?: true
 
-G#56 description: GAP: "S8"
+G#52 description: GAP: "S8"
     isomorphic?: true
+
+G#53 description: GAP: "S8"
+    isomorphic?: true
+
+G#54 description: GAP: "S8"
+    isomorphic?: true
+
+G#55 description: GAP: "S8"
+    isomorphic?: true
+
+G#56 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
+
+G#57 description: GAP: "S3"
+    isomorphic?: false
+    Galois width: 3
+
+G#58 description: GAP: "S8"
+    isomorphic?: true
+
+G#59 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#60 description: GAP: "S8"
+    isomorphic?: true
+
+G#61 description: GAP: "S8"
+    isomorphic?: true
+
+G#62 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#63 description: GAP: "S8"
+    isomorphic?: true
+
+G#64 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#65 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
+
+G#66 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
 
 G#67 description: GAP: "S8"
     isomorphic?: true
 
-G#70 description: GAP: "S8"
+G#68 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#69 description: GAP: "S8"
+    isomorphic?: true
+
+G#70 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#71 description: GAP: "S8"
+    isomorphic?: true
+
+G#72 description: GAP: "S8"
+    isomorphic?: true
+
+G#73 description: GAP: "S8"
     isomorphic?: true
 
 G#74 description: GAP: "S8"
     isomorphic?: true
 
+G#75 description: GAP: "S8"
+    isomorphic?: true
+
+G#76 description: GAP: "S8"
+    isomorphic?: true
+
+G#77 description: GAP: "S8"
+    isomorphic?: true
+
+G#78 description: GAP: "S8"
+    isomorphic?: true
+
+G#79 description: GAP: "S8"
+    isomorphic?: true
+
+G#80 description: GAP: "S8"
+    isomorphic?: true
+
+G#81 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
+
+G#82 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#83 description: GAP: "S8"
+    isomorphic?: true
+
+G#84 description: GAP: "S8"
+    isomorphic?: true
+
+G#85 description: GAP: "S8"
+    isomorphic?: true
+
+G#86 description: GAP: "S8"
+    isomorphic?: true
+
+G#87 description: GAP: "S8"
+    isomorphic?: true
+
+G#88 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
+
+G#89 description: GAP: "S8"
+    isomorphic?: true
+
+G#90 description: GAP: "S8"
+    isomorphic?: true
+
+G#91 description: GAP: "S8"
+    isomorphic?: true
+
+G#92 description: GAP: "S8"
+    isomorphic?: true
+
+G#93 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#94 description: GAP: "S8"
+    isomorphic?: true
+
+G#95 description: GAP: "S8"
+    isomorphic?: true
+
+G#96 description: GAP: "S8"
+    isomorphic?: true
+
+G#97 description: GAP: "S8"
+    isomorphic?: true
+
+G#98 description: GAP: "S8"
+    isomorphic?: true
+
+G#99 description: GAP: "S7"
+    isomorphic?: false
+    Galois width: 7
+
+G#100 description: GAP: "S8"
+    isomorphic?: true
+
+number of incomplete correspondences: 25
+false count: 25
+Galois width counts:
+gw = 1 occurred 6 times
+gw = 2 occurred 5 times
+gw = 3 occurred 1 times
+gw = 5 occurred 1 times
+gw = 6 occurred 1 times
+gw = 7 occurred 11 times

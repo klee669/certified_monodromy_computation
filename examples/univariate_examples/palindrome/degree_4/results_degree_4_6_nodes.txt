@@ -1,6 +1,5 @@
-G#1 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#1 description: GAP: "D8"
+    isomorphic?: true
 
 G#2 description: GAP: "D8"
     isomorphic?: true
@@ -17,8 +16,9 @@ G#5 description: GAP: "D8"
 G#6 description: GAP: "D8"
     isomorphic?: true
 
-G#7 description: GAP: "D8"
-    isomorphic?: true
+G#7 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
 
 G#8 description: GAP: "D8"
     isomorphic?: true
@@ -29,15 +29,15 @@ G#9 description: GAP: "D8"
 G#10 description: GAP: "D8"
     isomorphic?: true
 
-G#11 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#11 description: GAP: "D8"
+    isomorphic?: true
 
 G#12 description: GAP: "D8"
     isomorphic?: true
 
-G#13 description: GAP: "D8"
-    isomorphic?: true
+G#13 description: GAP: "C2 x C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#14 description: GAP: "D8"
     isomorphic?: true
@@ -81,9 +81,8 @@ G#26 description: GAP: "D8"
 G#27 description: GAP: "D8"
     isomorphic?: true
 
-G#28 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#28 description: GAP: "D8"
+    isomorphic?: true
 
 G#29 description: GAP: "D8"
     isomorphic?: true
@@ -91,13 +90,11 @@ G#29 description: GAP: "D8"
 G#30 description: GAP: "D8"
     isomorphic?: true
 
-G#31 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#31 description: GAP: "D8"
+    isomorphic?: true
 
-G#32 description: GAP: "C2 x C2"
-    isomorphic?: false
-    Galois width: 2
+G#32 description: GAP: "D8"
+    isomorphic?: true
 
 G#33 description: GAP: "D8"
     isomorphic?: true
@@ -105,8 +102,9 @@ G#33 description: GAP: "D8"
 G#34 description: GAP: "D8"
     isomorphic?: true
 
-G#35 description: GAP: "D8"
-    isomorphic?: true
+G#35 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#36 description: GAP: "D8"
     isomorphic?: true
@@ -117,9 +115,8 @@ G#37 description: GAP: "D8"
 G#38 description: GAP: "D8"
     isomorphic?: true
 
-G#39 description: GAP: "1"
-    isomorphic?: false
-    Galois width: 1
+G#39 description: GAP: "D8"
+    isomorphic?: true
 
 G#40 description: GAP: "D8"
     isomorphic?: true
@@ -130,8 +127,9 @@ G#41 description: GAP: "D8"
 G#42 description: GAP: "D8"
     isomorphic?: true
 
-G#43 description: GAP: "D8"
-    isomorphic?: true
+G#43 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#44 description: GAP: "D8"
     isomorphic?: true
@@ -151,8 +149,9 @@ G#48 description: GAP: "D8"
 G#49 description: GAP: "D8"
     isomorphic?: true
 
-G#50 description: GAP: "D8"
-    isomorphic?: true
+G#50 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#51 description: GAP: "D8"
     isomorphic?: true
@@ -178,8 +177,9 @@ G#57 description: GAP: "D8"
 G#58 description: GAP: "D8"
     isomorphic?: true
 
-G#59 description: GAP: "D8"
-    isomorphic?: true
+G#59 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#60 description: GAP: "D8"
     isomorphic?: true
@@ -190,9 +190,8 @@ G#61 description: GAP: "D8"
 G#62 description: GAP: "D8"
     isomorphic?: true
 
-G#63 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#63 description: GAP: "D8"
+    isomorphic?: true
 
 G#64 description: GAP: "D8"
     isomorphic?: true
@@ -209,13 +208,14 @@ G#67 description: GAP: "D8"
 G#68 description: GAP: "D8"
     isomorphic?: true
 
-G#69 description: GAP: "D8"
-    isomorphic?: true
+G#69 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#70 description: GAP: "D8"
     isomorphic?: true
 
-G#71 description: GAP: "C2"
+G#71 description: GAP: "C2 x C2"
     isomorphic?: false
     Galois width: 2
 
@@ -273,17 +273,14 @@ G#88 description: GAP: "D8"
 G#89 description: GAP: "D8"
     isomorphic?: true
 
-G#90 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#90 description: GAP: "D8"
+    isomorphic?: true
 
-G#91 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#91 description: GAP: "D8"
+    isomorphic?: true
 
-G#92 description: GAP: "C4"
-    isomorphic?: false
-    Galois width: 2
+G#92 description: GAP: "D8"
+    isomorphic?: true
 
 G#93 description: GAP: "D8"
     isomorphic?: true
@@ -291,11 +288,13 @@ G#93 description: GAP: "D8"
 G#94 description: GAP: "D8"
     isomorphic?: true
 
-G#95 description: GAP: "D8"
-    isomorphic?: true
+G#95 description: GAP: "C2 x C2"
+    isomorphic?: false
+    Galois width: 2
 
-G#96 description: GAP: "D8"
-    isomorphic?: true
+G#96 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#97 description: GAP: "D8"
     isomorphic?: true
@@ -309,8 +308,8 @@ G#99 description: GAP: "D8"
 G#100 description: GAP: "D8"
     isomorphic?: true
 
-number of incomplete correspondences: 9
-false count: 11
+number of incomplete correspondences: 7
+false count: 10
 Galois width counts:
 gw = 1 occurred 1 times
-gw = 2 occurred 10 times
+gw = 2 occurred 9 times

@@ -1,6 +1,6 @@
-p0:= PermList([1, 2]);
+p0:= PermList([2, 1]);
 p1:= PermList([1, 2]);
-p2:= PermList([1, 2]);
+p2:= PermList([2, 1]);
 p3:= PermList([1, 2]);
 p4:= PermList([2, 1]);
 p5:= PermList([1, 2]);

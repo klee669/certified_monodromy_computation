@@ -22,8 +22,9 @@ G#7 description: GAP: "C2 x C2"
 G#8 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#9 description: GAP: "C2 x C2"
-    isomorphic?: true
+G#9 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#10 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -34,9 +35,8 @@ G#11 description: GAP: "C2 x C2"
 G#12 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#13 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#13 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#14 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -44,13 +44,11 @@ G#14 description: GAP: "C2 x C2"
 G#15 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#16 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#16 description: GAP: "C2 x C2"
+    isomorphic?: true
 
-G#17 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#17 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#18 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -71,8 +69,9 @@ G#22 description: GAP: "C2"
 G#23 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#24 description: GAP: "C2 x C2"
-    isomorphic?: true
+G#24 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#25 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -89,11 +88,13 @@ G#28 description: GAP: "C2 x C2"
 G#29 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#30 description: GAP: "C2 x C2"
-    isomorphic?: true
+G#30 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
-G#31 description: GAP: "C2 x C2"
-    isomorphic?: true
+G#31 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#32 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -104,16 +105,14 @@ G#33 description: GAP: "C2 x C2"
 G#34 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#35 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#35 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#36 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#37 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#37 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#38 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -142,9 +141,8 @@ G#45 description: GAP: "C2 x C2"
 G#46 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#47 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#47 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#48 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -162,8 +160,9 @@ G#52 description: GAP: "C2"
     isomorphic?: false
     Galois width: 2
 
-G#53 description: GAP: "C2 x C2"
-    isomorphic?: true
+G#53 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#54 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -201,8 +200,9 @@ G#64 description: GAP: "C2 x C2"
 G#65 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#66 description: GAP: "C2 x C2"
-    isomorphic?: true
+G#66 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#67 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -216,9 +216,8 @@ G#69 description: GAP: "C2 x C2"
 G#70 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#71 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#71 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#72 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -235,8 +234,9 @@ G#75 description: GAP: "C2 x C2"
 G#76 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#77 description: GAP: "C2 x C2"
-    isomorphic?: true
+G#77 description: GAP: "C2"
+    isomorphic?: false
+    Galois width: 2
 
 G#78 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -256,12 +256,12 @@ G#82 description: GAP: "C2 x C2"
 G#83 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#84 description: GAP: "C2"
+G#84 description: GAP: "C2 x C2"
+    isomorphic?: true
+
+G#85 description: GAP: "C2"
     isomorphic?: false
     Galois width: 2
-
-G#85 description: GAP: "C2 x C2"
-    isomorphic?: true
 
 G#86 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -272,16 +272,14 @@ G#87 description: GAP: "C2 x C2"
 G#88 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#89 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#89 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#90 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#91 description: GAP: "C2"
-    isomorphic?: false
-    Galois width: 2
+G#91 description: GAP: "C2 x C2"
+    isomorphic?: true
 
 G#92 description: GAP: "C2 x C2"
     isomorphic?: true
@@ -301,17 +299,17 @@ G#96 description: GAP: "C2 x C2"
 G#97 description: GAP: "C2 x C2"
     isomorphic?: true
 
-G#98 description: GAP: "C2"
+G#98 description: GAP: "C2 x C2"
+    isomorphic?: true
+
+G#99 description: GAP: "C2"
     isomorphic?: false
     Galois width: 2
-
-G#99 description: GAP: "C2 x C2"
-    isomorphic?: true
 
 G#100 description: GAP: "C2 x C2"
     isomorphic?: true
 
-number of incomplete correspondences: 13
-false count: 13
+number of incomplete correspondences: 11
+false count: 11
 Galois width counts:
-gw = 2 occurred 13 times
+gw = 2 occurred 11 times
