@@ -1,4 +1,50 @@
-export track
+export track, tracking_without_predictor
+
+
+# tracking without predictor
+function tracking_without_predictor(H, x, r)
+    ring = parent(H[1]);
+    coeff_ring = base_ring(H[1]);
+    t = 0;
+    h = 1;
+    n = length(x);
+
+    G = evaluate_matrix(Matrix(transpose(hcat(H))), 0)
+    A = jacobian_inverse(G, x)
+
+    iter = 0;
+    while t < 1
+        rt = round(t, digits = 10)
+        print("\rprogress t: $rt")
+
+        Ft = evaluate_matrix(hcat(H), t);
+        x,r,A = refine_moore_box(Ft, x, r, A, 1/8);
+        h = 2*h;
+        radii = h/2;
+
+
+        midt = t+h/2;
+        T = CCi("$midt +/- $radii");
+#        FT = evaluate_matrix(transpose(hcat(H)), T);
+        FT = evaluate_matrix(hcat(H), t+h);
+        while krawczyk_test(FT, x, r, A, 7/8) == false
+            h = 1/2 * h;
+            midt = t+h/2;
+            radii = h/2;
+    
+            T = CCi("$midt +/- $radii");
+            FT = evaluate_matrix(hcat(H), t+h);
+#            FT = evaluate_matrix(transpose(hcat(H)), T);
+        end
+        t = max_int_norm(T);
+        iter = iter+1;
+    end
+
+    Ft = evaluate_matrix(hcat(H), 1);
+    x,r,A = refine_moore_box(Ft, x, r, A, 1/8);
+    return x
+end
+
 
 """
     track(H, x, r; show_display=true, refinement_threshold=1/8)
@@ -12,7 +58,13 @@ function track(
     r::Number;
     show_display = true,
     refinement_threshold = 1/8,
+    predictor = "hermitian"
 )
+
+    if predictor == "without_predictor"
+        x = tracking_without_predictor(H, x, r)
+        return x
+    end
     ## --- Initialization --------------------------------------------------
     coeff_ring  = base_ring(H[1])
     CCi         = coefficient_ring(coeff_ring)

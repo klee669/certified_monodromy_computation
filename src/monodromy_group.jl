@@ -57,7 +57,8 @@ function track_edge(
     H::Union{Matrix, Vector}, 
     e::Edge, 
     from1to2::Bool, 
-    r::Number
+    r::Number;
+    predictor = true
 )
     if from1to2
         va, vb = e.node1, e.node2
@@ -81,7 +82,11 @@ function track_edge(
         x_idx === false && error("unknown candidate entered")
 
         println("\n🔁 tracking path #$(n_iter)")
-        y = track(Fab, i, r; show_display = true, refinement_threshold = 1/8)
+        if predictor == false
+            y = tracking_without_predictor(Fab, i, r)
+        else
+            y = track(Fab, i, r; show_display = true, refinement_threshold = 1/8)
+        end
         n_iter += 1
 
         y_idx = search_point(y, qb)
@@ -120,7 +125,8 @@ function track_complete_graph(
     H::Union{Matrix,Vector},
     r::Number,
     vertices::Vector{Vertex},
-    max_root_count::Int
+    max_root_count::Int;
+    predictor = true
 )
 
     base_points = map(i -> i.base_point, vertices)
@@ -152,10 +158,10 @@ function track_complete_graph(
             else
                 iter = 0
             end
-            if iter > 10
-                println("After 10 iterations, no known solution was found. Tracking is stopped.")
-                return edgs
-            end
+#            if iter > 10
+#                println("After 10 iterations, no known solution was found. Tracking is stopped.")
+#                return edgs
+#            end
             prev_n_correspondences = copy(n_correspondences)
 
 
@@ -167,12 +173,20 @@ function track_complete_graph(
             println("\r-----------------------------------------------------")
             println("\rstart node: $node1_idx : $node1_sols known solutions")
             println("\rtarg. node: $node2_idx : $node2_sols known solutions")
-            i = track_edge(H, i, true, r)
+            if predictor == false
+                i = track_edge(H, i, true, r; predictor=false)
+            else
+                i = track_edge(H, i, true, r)
+            end
 
             println("\r-----------------------------------------------------")
             println("\rstart node: $node2_idx : $node2_sols known solutions")
             println("\rtarg. node: $node1_idx : $node1_sols known solutions")
-            i = track_edge(H, i, false, r)
+            if predictor == false
+                i = track_edge(H, i, false, r; predictor=false)
+            else
+                i = track_edge(H, i, false, r)
+            end
 
             npoints = map(j -> length(j.partial_sols), vertices)
             n_correspondences = map(k -> length(k.correspondence12), edgs)
