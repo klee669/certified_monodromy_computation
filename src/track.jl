@@ -58,7 +58,8 @@ function track(
     r::Number;
     show_display = true,
     refinement_threshold = 1/8,
-    predictor = "hermitian"
+    predictor = "hermitian",
+    iterations_count = false
 )
 
     if predictor == "without_predictor"
@@ -111,6 +112,9 @@ function track(
 
     ## --- Final Refinement ------------------------------------------------
     Ft, x, r, A, v, h, radii = refine_step(H, 1, x, r, A, h; threshold = 1 / 100)
-
-    return x
+    if iterations_count
+        return x, iter
+    else
+        return x
+    end
 end
