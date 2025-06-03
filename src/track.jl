@@ -2,7 +2,7 @@ export track, tracking_without_predictor
 
 
 # tracking without predictor
-function tracking_without_predictor(H, x, r)
+function tracking_without_predictor(H, x, r; iterations_count = false)
     ring = parent(H[1]);
     coeff_ring = base_ring(H[1]);
     t = 0;
@@ -15,7 +15,7 @@ function tracking_without_predictor(H, x, r)
     iter = 0;
     while t < 1
         rt = round(t, digits = 10)
-        print("\rprogress t: $rt")
+        print("\r(h, progress t): ($h,$rt)")
 
         Ft = evaluate_matrix(hcat(H), t);
         x,r,A = refine_moore_box(Ft, x, r, A, 1/8);
@@ -25,16 +25,16 @@ function tracking_without_predictor(H, x, r)
 
         midt = t+h/2;
         T = CCi("$midt +/- $radii");
-#        FT = evaluate_matrix(transpose(hcat(H)), T);
-        FT = evaluate_matrix(hcat(H), t+h);
+        FT = evaluate_matrix(hcat(H), T);
+#        FT = evaluate_matrix(hcat(H), t+h);
         while krawczyk_test(FT, x, r, A, 7/8) == false
             h = 1/2 * h;
             midt = t+h/2;
             radii = h/2;
     
             T = CCi("$midt +/- $radii");
-            FT = evaluate_matrix(hcat(H), t+h);
-#            FT = evaluate_matrix(transpose(hcat(H)), T);
+#            FT = evaluate_matrix(hcat(H), t+h);
+            FT = evaluate_matrix(hcat(H), T);
         end
         t = max_int_norm(T);
         iter = iter+1;
@@ -42,7 +42,11 @@ function tracking_without_predictor(H, x, r)
 
     Ft = evaluate_matrix(hcat(H), 1);
     x,r,A = refine_moore_box(Ft, x, r, A, 1/8);
-    return x
+    if iterations_count
+        return x, iter
+    else
+        return x
+    end
 end
 
 

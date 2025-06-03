@@ -28,7 +28,7 @@ end
 # Evaluate a symbolic matrix at a given point (number or vector)
 function evaluate_matrix(
     m::Union{Matrix, AbstractAlgebra.Generic.MatSpaceElem},
-    vec::Union{Number, Vector{AcbFieldElem}, AbstractAlgebra.Generic.MPoly}
+    vec::Union{Number, AcbFieldElem, Vector{AcbFieldElem}, AbstractAlgebra.Generic.MPoly}
 )
     R = base_ring(m[1])
     nr, nc = size(m)

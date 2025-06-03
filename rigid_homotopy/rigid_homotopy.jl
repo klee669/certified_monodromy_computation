@@ -26,7 +26,7 @@ function hermitian_conjugate(A, CCi)
 end
 
 
-function rigid_track(F, point, r, w)
+function rigid_track(F, point, r, wm)
 
     R = parent(F[1])
     n = length(F)
@@ -37,21 +37,31 @@ function rigid_track(F, point, r, w)
 
     while tval < 1
         iter += 1
-        print("\rprogress t: $(round(tval, digits = 10))")
-        print("\riter: $iter")
-        w_t = map(i -> evaluate_matrix(Matrix(i), tval), w)
+#        print("\rprogress t: $(round(tval, digits = 10))")
+#        print("\riter: $iter")
+        print("\r(step size, iter, progress): ($h, $iter, $(round(tval, digits = 10)))")
+        w_t = map(i -> evaluate_matrix(Matrix(i), tval), wm)
         transformations = map(i -> i*vars_F, w_t)
         transformed_F = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
         A = jacobian_inverse(matrix(transformed_F), point)
-
         point,r,A = refine_moore_box(Matrix(transpose(matrix(transformed_F))), point, r, A, 1/8)
+
+        midt = tval + h/2
+        radii = h/2
+        T = CCi("$midt +/- $radii")
+
+#        w_t = map(i -> evaluate_matrix(Matrix(i), tval+h), wm)
+        w_t = map(i -> evaluate_matrix(Matrix(i), T), wm)
+        transformations = map(i -> i*vars_F, w_t)
+        transformed_F = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
         while krawczyk_test(Matrix(transpose(matrix(transformed_F))), point, r, A, 7/8) == false
             h = 1/2 * h
             midt = tval + h/2
             radii = h/2
             T = CCi("$midt +/- $radii")
 
-            w_t = map(i -> evaluate_matrix(Matrix(i), T), w)
+#        w_t = map(i -> evaluate_matrix(Matrix(i), tval+h), wm)
+        w_t = map(i -> evaluate_matrix(Matrix(i), T), wm)
             transformations = map(i -> i*vars_F, w_t)
             transformed_F = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
         end
@@ -59,7 +69,7 @@ function rigid_track(F, point, r, w)
         tval = tval + h
     end
 
-    w_t = map(i -> evaluate_matrix(Matrix(i), 1), w)
+    w_t = map(i -> evaluate_matrix(Matrix(i), 1), wm)
     transformations = map(i -> i*vars_F, w_t)
     transformed_F = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
 

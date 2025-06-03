@@ -12,10 +12,26 @@ M = rand(ComplexF64, 2, 2)
 A1 = matrix(convert_to_box_matrix((M- M')/2,CCi))
 A2 = matrix(convert_to_box_matrix((M- M')/2,CCi))
 
-w1 = matrix_exponential(A1, t; order = 10)
-w2 = matrix_exponential(A2, t; order = 10)
+w1 = matrix_exponential(A1, t; order = 5)
+w2 = matrix_exponential(A2, t; order = 5)
 wt = [w1, w2]
 p, iters = rigid_track(F, point, .1, wt)
+
+
+# comparison with the certified linear homotopy
+# These are needed to construct the linear homotopy
+R = parent(F[1])
+n = length(F)
+vars_F = gens(R)[1:n]
+
+w_t = map(i -> evaluate_matrix(Matrix(i), 1), wt)
+transformations = map(i -> i*vars_F, w_t)
+target_system = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
+
+H = Matrix((1-t)*matrix(transpose(F))+ t*matrix(target_system))
+HH = Matrix((1-t)*matrix(F)+ t*matrix(transpose(target_system)))
+tracking_without_predictor(HH, point, .1; iterations_count = true) # 55 iterations
+track(H, point, .1; iterations_count = true) # 32 iterations
 
 
 
@@ -66,6 +82,8 @@ transformations = map(i -> i*vars_F, w_t)
 target_system = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
 
 H = Matrix((1-t)*matrix(transpose(F))+ t*matrix(target_system))
+HH = Matrix((1-t)*matrix(F)+ t*matrix(transpose(target_system)))
+tracking_without_predictor(HH, point, .1; iterations_count = true) # 55 iterations
 track(H, point, .1; iterations_count = true) # 32 iterations
 
 
@@ -119,4 +137,5 @@ transformations = map(i -> i*vars_F, w_t)
 target_system = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
 
 H = Matrix((1-t)*matrix(transpose(F))+ t*matrix(target_system))
-track(H, point, .1; iterations_count = true) # 55 iterations
+HH = Matrix((1-t)*matrix(F)+ t*matrix(transpose(target_system)))
+tracking_without_predictor(HH, point, .1; iterations_count = true) # 55 iterations
