@@ -10,11 +10,12 @@ point = [CCi(-.576287,-1.04024), CCi(-1.39128,.430883)]
 
 M = rand(ComplexF64, 2, 2)
 A1 = matrix(convert_to_box_matrix((M- M')/2,CCi))
+M = rand(ComplexF64, 2, 2)
 A2 = matrix(convert_to_box_matrix((M- M')/2,CCi))
 
 w1 = matrix_exponential(A1, t; order = 5)
 w2 = matrix_exponential(A2, t; order = 5)
-wt = [w1, w2]
+wt = [A1, A2]
 p, iters = rigid_track(F, point, .1, wt)
 
 
@@ -32,6 +33,64 @@ H = Matrix((1-t)*matrix(transpose(F))+ t*matrix(target_system))
 HH = Matrix((1-t)*matrix(F)+ t*matrix(transpose(target_system)))
 tracking_without_predictor(HH, point, .1; iterations_count = true) # 55 iterations
 track(H, point, .1; iterations_count = true) # 32 iterations
+
+
+
+
+# a two-variable example
+CCi = AcbField()
+eR, (x,y,η) = CCi["x","y","η"]
+HR, (t) = eR["t"]
+
+A_0 = matrix(convert_to_box_matrix(rand(ComplexF64, 2, 2),CCi))
+A_1 = matrix(convert_to_box_matrix(rand(ComplexF64, 2, 2),CCi))
+A_2 = matrix(convert_to_box_matrix(rand(ComplexF64, 2, 2),CCi))
+B_0 = matrix(convert_to_box_matrix(rand(ComplexF64, 2, 2),CCi))
+B_1 = matrix(convert_to_box_matrix(rand(ComplexF64, 2, 2),CCi))
+B_2 = matrix(convert_to_box_matrix(rand(ComplexF64, 2, 2),CCi))
+
+
+F = [CCi(.0665973,+.715566)*x^2+CCi(-.443541,+.0448575)*x*y+CCi(.320556,-.232718)*y^2+CCi(.854157,-1.0638)*x+CCi(.827374,+.264383)*y-CCi(.494373,.295369)
+    CCi(-1.10874,-.0359951)*x^2+CCi(-1.12079,-.558265)*x*y+CCi(-.255562,-1.11227)*y^2+CCi(1.59943,-.472601)*x+CCi(.327772,+.644435)*y-CCi(.330381,+.00997843)]
+F = Matrix(transpose(F))
+points = [[CCi(1.07906,-.726546), CCi(.306091,+1.1297)], [CCi(.254121,+1.04198), CCi(-1.39188,+.148427)],
+      [CCi(1.00155,.646277), CCi(.278009,-.790194)], [CCi(.265832,+.0274612), CCi(.288628,-.168463)]]
+
+M = rand(ComplexF64, 2, 2)
+A1 = matrix(convert_to_box_matrix((M- M')/2,CCi))
+M = rand(ComplexF64, 2, 2)
+A2 = matrix(convert_to_box_matrix((M- M')/2,CCi))
+
+w1 = matrix_exponential(A1, t; order = 1)
+w2 = matrix_exponential(A2, t; order = 1)
+At = [A1, A2]
+wt = [w1, w2]
+p1, iters1 = rigid_track2(F, points[1], .1, wt, At)
+p2, iters2 = rigid_track(F, points[2], .1, wt)
+p3, iters3 = rigid_track(F, points[3], .1, wt)
+p4, iters4 = rigid_track(F, points[4], .1, wt)
+iters1 + iters2 + iters3 + iters4
+
+# comparison with the certified linear homotopy
+# These are needed to construct the linear homotopy
+    R = parent(F[1])
+n = length(F)
+vars_F = gens(R)[1:n]
+
+w_t = map(i -> evaluate_matrix(Matrix(i), 1), wt)
+transformations = map(i -> i*vars_F, w_t)
+target_system = map(i -> AbstractAlgebra.evaluate(F[i], [transformations[i]; 0]), 1:n)
+
+H = Matrix((1-t)*matrix(transpose(F))+ t*matrix(target_system))
+HH = Matrix((1-t)*CCi(exp(im*rand(Int)))*matrix(F)+ t*matrix(transpose(target_system)))
+lp1, liter1 = tracking_without_predictor(HH, points[1], .1; iterations_count = true)
+lp2, liter2 = tracking_without_predictor(HH, points[2], .1; iterations_count = true)
+lp3, liter3 = tracking_without_predictor(HH, points[3], .1; iterations_count = true)
+lp4, liter4 = tracking_without_predictor(HH, points[4], .1; iterations_count = true)
+liter1 + liter2 + liter3 + liter4
+track(H, point, .1; iterations_count = true) # 32 iterations
+
+
 
 
 

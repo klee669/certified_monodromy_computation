@@ -158,10 +158,10 @@ function track_complete_graph(
             else
                 iter = 0
             end
-#            if iter > 10
-#                println("After 10 iterations, no known solution was found. Tracking is stopped.")
-#                return edgs
-#            end
+            if iter > 10
+                println("After 10 iterations, no known solution was found. Tracking is stopped.")
+                return edgs
+            end
             prev_n_correspondences = copy(n_correspondences)
 
 
