@@ -1,0 +1,56 @@
+G#1 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: false
+    Galois width: 3
+
+G#2 description: GAP: "C2 x A4"
+    isomorphic?: false
+    Galois width: 3
+
+G#3 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: false
+    Galois width: 3
+
+G#4 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
+
+G#5 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
+
+G#6 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
+
+G#7 description: GAP: "S3"
+    isomorphic?: false
+    Galois width: 3
+
+G#8 description: GAP: "C2 x S4"
+    isomorphic?: false
+    Galois width: 3
+
+G#9 description: GAP: "(((C2 x C2 x C2) : (C2 x C2)) : C3) : C2"
+    isomorphic?: false
+    Galois width: 3
+
+G#10 description: GAP: "((((C2 x C2 x C2) : (C2 x C2)) : C3) : C2) : C2"
+    isomorphic?: true
+
+G#11 description: GAP: "((((C2 x C2 x C2) : (C2 x C2)) : C3) : C2) : C2"
+    isomorphic?: true
+
+G#12 description: GAP: "((((C2 x C2 x C2) : (C2 x C2)) : C3) : C2) : C2"
+    isomorphic?: true
+
+G#13 description: GAP: "((((C2 x C2 x C2) : (C2 x C2)) : C3) : C2) : C2"
+    isomorphic?: true
+
+G#14 description: GAP: "S4"
+    isomorphic?: false
+    Galois width: 3
+
+G#15 description: GAP: "1"
+    isomorphic?: false
+    Galois width: 1
+
