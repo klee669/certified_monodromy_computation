@@ -26,9 +26,9 @@ GAP.evalstr(cmd)
 @gap("GaloisWidth(G);") #3
 
 
-for n_nodes in 4:6
+for n_nodes in 6:6
 
-    result_name = "results_degree_8_$(n_nodes)_nodes.txt"
+    result_name = "result_degree_8_$(n_nodes)_nodes.txt"
     result_filename = joinpath(path_name, result_name)
     path = result_filename
     using GAP
@@ -49,7 +49,7 @@ for n_nodes in 4:6
                     fail_correspondence_count = fail_correspondence_count+1;
                 end
     
-                dummy_name = "palindrome_8_$(n_nodes)nodes"
+                dummy_name = "palindrome_8$(n_nodes)nodes"
                 save_path = joinpath(path_name, dummy_name)
     
                 perms=get_permutations(length(edges[1].correspondence12),edges)
