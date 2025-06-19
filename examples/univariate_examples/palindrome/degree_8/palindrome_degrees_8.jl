@@ -26,7 +26,7 @@ GAP.evalstr(cmd)
 @gap("GaloisWidth(G);") #3
 
 
-for n_nodes in 6:6
+for n_nodes in 3:6
 
     result_name = "result_degree_8_$(n_nodes)_nodes.txt"
     result_filename = joinpath(path_name, result_name)
