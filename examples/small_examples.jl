@@ -1,6 +1,6 @@
-include("../src/certified_tracking.jl")
+include("../src/certified_monodromy_computation.jl")
 
-CCi = ComplexField()
+CCi = AcbField()
 eR, (x,y,η) = CCi["x","y","η"]
 HR, (t) = eR["t"]
 f = CCi("1+/- 0.0000000001")*x^2+3*y-4
@@ -13,7 +13,8 @@ H = straight_line_homotopy(F,G,t)
 point = [CCi(1),CCi(-1)]
 
 
-x,it = track(H, point, .1)
+x,it = track(H, point, .1; iterations_count = true, tracking = "non")
+x,it = track(H, point, .1; iterations_count = true)
 x,it = track(H, point, .1; show_display =false)
 x,it = track(H, point, .1; predictor = "Linear")
 
@@ -39,7 +40,8 @@ point = [CCi(1),CCi(-1), CCi(-1)]
 A = jacobian_inverse(G,point)
 
 
-x,it = track(H, point, .1)
+x,it = track(H, point, .1; iterations_count = true, tracking = "non")
+x,it = track(H, point, .1; iterations_count = true)
 x,it = track(H, point, .1; show_display =false)
 x,it = track(H, point, .1; predictor = "Linear")
 
@@ -69,6 +71,10 @@ H = ([(1-t)*(1+onei(CCi)); (1-t)*(1+onei(CCi)); (1-t)*(1+onei(CCi)); (1-t)*(1+on
 point = [CCi(1),CCi(1), CCi(-1), CCi(-1), CCi(1)]
 A = jacobian_inverse(G,point)
 
+
+x,it = track(H, point, .1; iterations_count = true, tracking = "non")
+x,it = track(H, point, .1; iterations_count = true)
+
 x,it = track(H, point, .1)
 x,it = track(H, point, .1; predictor = "Linear")
 
@@ -91,6 +97,10 @@ G = [g1 g2 g3 g4]
 F = [f1 f2 f3 f4]
 H = straight_line_homotopy(F,G,t)
 point = [CCi(1),CCi(1),CCi(1), CCi(1)]
+
+x,it = track(H, point, .1; iterations_count = true, tracking = "non")
+x,it = track(H, point, .1; iterations_count = true, tracking = "truncate")
+
 
 x,it = track(H, point, .1)
 x,it = track(H, point, .1; predictor = "Linear")
@@ -131,6 +141,10 @@ for i = 1:9
 end
 point = [CCi(1),CCi(-1),CCi(-1),CCi(-1),CCi(-1),CCi(-1),CCi(-1),CCi(-1), CCi(-1)]
 A = jacobian_inverse(G,point)
+
+x,it = track(H, point, .1; iterations_count = true, tracking = "non")
+x,it = track(H, point, .1; iterations_count = true, tracking = "truncate")
+
 
 x,it = track(H, point, .1)
 x,it = track(H, point, .1; predictor = "Linear")

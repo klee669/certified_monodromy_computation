@@ -25,16 +25,16 @@ function tracking_without_predictor(H, x, r; iterations_count = false)
 
         midt = t+h/2;
         T = CCi("$midt +/- $radii");
-        FT = evaluate_matrix(hcat(H), T);
-#        FT = evaluate_matrix(hcat(H), t+h);
+#        FT = evaluate_matrix(hcat(H), T);
+        FT = evaluate_matrix(hcat(H), t+h);
         while krawczyk_test(FT, x, r, A, 7/8) == false
             h = 1/2 * h;
             midt = t+h/2;
             radii = h/2;
     
             T = CCi("$midt +/- $radii");
-#            FT = evaluate_matrix(hcat(H), t+h);
-            FT = evaluate_matrix(hcat(H), T);
+            FT = evaluate_matrix(hcat(H), t+h);
+#            FT = evaluate_matrix(hcat(H), T);
         end
         t = max_int_norm(T);
         iter = iter+1;
@@ -63,7 +63,8 @@ function track(
     show_display = true,
     refinement_threshold = 1/8,
     predictor = "hermitian",
-    iterations_count = false
+    iterations_count = false,
+    tracking = "truncate"
 )
 
     if predictor == "without_predictor"
@@ -95,7 +96,7 @@ function track(
         rt = round(t, digits = 10)
 
         x, v, h, X, r, A = hermite_tracking(
-            H, t, x, r, A, h, n, xprev, vprev, hprev, refinement_threshold
+            H, t, x, r, A, h, n, xprev, vprev, hprev, refinement_threshold; tracking
         )
 
         xprev  = x
