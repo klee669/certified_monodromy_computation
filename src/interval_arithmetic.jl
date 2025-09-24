@@ -8,6 +8,7 @@ export toCCi,
     convert_to_double_int, 
     convert_to_double_matrix
 
+using AbstractAlgebra
 
 
 function toCCi(x, F::AbstractAlgebra.Field)

@@ -85,6 +85,52 @@ end
 
 
 # --------------------------------------------------------------------------
+# Krawczyk operator in the Taylor model
+function krawczyk_operator_taylor_model_predictor(
+    H::Union{Matrix, Vector}, 
+    lp::Vector, 
+    tval::Number,
+    A::AcbMatrix,
+    r::Number,
+)
+    n   = length(H)
+    eR  = base_ring(H[1])
+    CC  = coefficient_ring(eR)
+    η   = gens(eR)[end]
+    lp  = push!(lp, η)
+
+    eH    = evaluate_matrix(hcat(H), tval + η)
+    ejac  = jac(eH)
+    eHjac = zeros(eR, n, n)
+
+    ball  = CC("+/- 1", "+/-1")
+    mat   = [ball for _ in 1:n] |> x -> vcat(x, [CC(0)])
+
+    for i in 1:n
+        eH[i] = AbstractAlgebra.evaluate(eH[i], lp)
+        for j in 1:n
+            eHjac[i, j] = AbstractAlgebra.evaluate(ejac[i, j], lp + r * mat)
+        end
+    end
+
+    I = identity_matrix(CC, n)
+    res = (-1 / r) * A * eH + (I - A * matrix(eHjac))*matrix(ones(n))
+    
+    
+#    for i in 1:length(res)
+#        term_list = collect(AbstractAlgebra.terms(res[i]))
+#        deg = length(term_list)
+ #       if deg < 4
+ #           continue
+ #       end
+ #       res[i] = sum(term_list[deg-2:deg])
+ #   end
+    
+    return res
+end
+
+
+# --------------------------------------------------------------------------
 # Shrinks step size `h` until the Krawczyk test passes
 function proceeding_step(
     h::Number, 
@@ -166,6 +212,60 @@ end
 # Step using Hermite predictor (with history)
 function hermite_tracking(
     H::Union{Matrix, Vector}, 
+    max_deg_H::Vector{Int},
+    t::Number, 
+    x::Vector, 
+    r::Number, 
+    A::AcbMatrix, 
+    h::Number, 
+    n::Int, 
+    xprev::Vector, 
+    vprev::Vector, 
+    hprev::Number, 
+    refinement_threshold::Number;
+    tracking = "truncate",
+    projective = false,
+)
+    Ft, x, r, A, v, h, radii = refine_step(H, t, x, r, A, h; threshold = refinement_threshold)
+#=    if projective
+        norms = [max_int_norm(xi) for xi in x]
+        x_max_norm = maximum(norms)
+        max_index = argmax(norms)
+        if x_max_norm > 2
+            for i in 1:n
+                H[i] = (1/x[max_index])^(max_deg_H[i]) * H[i]
+            end
+            x = vec(Matrix((1/x[max_index]) * matrix(x)))
+            xprev = vec(Matrix((1/x[max_index]) * matrix(xprev)))
+            v = vec(Matrix((1/x[max_index]) * matrix(v)))
+            vprev = vec(Matrix((1/x[max_index]) * matrix(vprev)))
+            A = jacobian_inverse(evaluate_matrix(hcat(H), t), x)
+        end
+    end
+=#
+    X  = hermite_predictor(H, x, xprev, v, vprev, hprev)
+    if tracking == "non-truncate"
+        tm = krawczyk_operator_taylor_model_original(H, X, t, A, r)
+    else
+        tm = krawczyk_operator_taylor_model(H, X, t, A, r)
+    end
+
+    T = CCi("$radii +/- $radii")
+    input = zeros(CCi, n + 1)
+    input[n + 1] = T
+
+    K = evaluate_matrix(tm, input)
+    h = proceeding_step(h, CCi, n, tm, K)
+
+    return H, x, v, h, X, r, A
+end
+
+
+
+# --------------------------------------------------------------------------
+# Step using Hermite predictor (with history)
+function certified_hermite_tracking(
+    H::Union{Matrix, Vector}, 
     t::Number, 
     x::Vector, 
     r::Number, 
@@ -180,11 +280,7 @@ function hermite_tracking(
 )
     Ft, x, r, A, v, h, radii = refine_step(H, t, x, r, A, h; threshold = refinement_threshold)
     X  = hermite_predictor(H, x, xprev, v, vprev, hprev)
-    if tracking == "truncate"
-        tm = krawczyk_operator_taylor_model(H, X, t, A, r)
-    else
-        tm = krawczyk_operator_taylor_model_original(H, X, t, A, r)
-    end
+        tm = krawczyk_operator_taylor_model_predictor(H, X, t, A, r)
 
     T = CCi("$radii +/- $radii")
     input = zeros(CCi, n + 1)
@@ -195,3 +291,4 @@ function hermite_tracking(
 
     return x, v, h, X, r, A
 end
+

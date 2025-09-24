@@ -5,6 +5,7 @@ export track, tracking_without_predictor
 function tracking_without_predictor(H, x, r; iterations_count = false)
     ring = parent(H[1]);
     coeff_ring = base_ring(H[1]);
+    CCi = base_ring(coeff_ring)
     t = 0;
     h = 1;
     n = length(x);
@@ -17,7 +18,7 @@ function tracking_without_predictor(H, x, r; iterations_count = false)
         rt = round(t, digits = 10)
         print("\r(h, progress t): ($h,$rt)")
 
-        Ft = evaluate_matrix(hcat(H), t);
+        Ft = evaluate_matrix(Matrix(transpose(hcat(H))), t);
         x,r,A = refine_moore_box(Ft, x, r, A, 1/8);
         h = 2*h;
         radii = h/2;
@@ -26,21 +27,21 @@ function tracking_without_predictor(H, x, r; iterations_count = false)
         midt = t+h/2;
         T = CCi("$midt +/- $radii");
 #        FT = evaluate_matrix(hcat(H), T);
-        FT = evaluate_matrix(hcat(H), t+h);
+        FT = evaluate_matrix(Matrix(transpose(hcat(H))), t+h);
         while krawczyk_test(FT, x, r, A, 7/8) == false
             h = 1/2 * h;
             midt = t+h/2;
             radii = h/2;
     
             T = CCi("$midt +/- $radii");
-            FT = evaluate_matrix(hcat(H), t+h);
+            FT = evaluate_matrix(Matrix(transpose(hcat(H))), t+h);
 #            FT = evaluate_matrix(hcat(H), T);
         end
         t = max_int_norm(T);
         iter = iter+1;
     end
 
-    Ft = evaluate_matrix(hcat(H), 1);
+    Ft = evaluate_matrix(Matrix(transpose(hcat(H))), 1);
     x,r,A = refine_moore_box(Ft, x, r, A, 1/8);
     if iterations_count
         return x, iter
@@ -64,7 +65,8 @@ function track(
     refinement_threshold = 1/8,
     predictor = "hermitian",
     iterations_count = false,
-    tracking = "truncate"
+    tracking = "truncate",
+    projective = false,
 )
 
     if predictor == "without_predictor"
@@ -79,6 +81,7 @@ function track(
     iter        = 0
     tprev       = 0
     n           = length(x)
+    max_deg_H   = max_degree(hcat(H))
 
     G = evaluate_matrix(Matrix(transpose(hcat(H))), 0)
     A = jacobian_inverse(G, x)
@@ -95,8 +98,8 @@ function track(
     while t < 1
         rt = round(t, digits = 10)
 
-        x, v, h, X, r, A = hermite_tracking(
-            H, t, x, r, A, h, n, xprev, vprev, hprev, refinement_threshold; tracking
+        H, x, v, h, X, r, A = hermite_tracking(
+            H, max_deg_H, t, x, r, A, h, n, xprev, vprev, hprev, refinement_threshold; tracking, projective
         )
 
         xprev  = x

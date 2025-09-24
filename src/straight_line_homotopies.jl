@@ -15,6 +15,11 @@ function straight_line_homotopy(F, G, t)
     H
 end
 
+function max_degree(H::Matrix)
+    generic_F = evaluate_matrix(H, CCi(rand(ComplexF64)))
+#    return map(i -> degrees(generic_F[i]), 1:length(generic_F))
+    return map(i -> maximum(map(j -> sum(degrees(j)), AbstractAlgebra.monomials(generic_F[i]))), 1:length(generic_F))
+end
 
 # constructing a linear path from p0 to p1
 function linear_path(p0, p1, t)
@@ -33,9 +38,9 @@ function specified_system(p0, p1, F)
     n = length(F)
     t = gens(HR)[1]
     p = linear_path(p0, p1, t)
-    if length(p) == 1
-        p = p[1]
-    end
+#    if length(p) == 1
+#        p = p[1]
+#    end
     Fp = zeros(HR, n)
     for i = 1:n
         Fp[i] = AbstractAlgebra.evaluate(F[i], p)
