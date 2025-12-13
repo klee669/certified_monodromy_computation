@@ -26,6 +26,7 @@ perms=get_permutations(8,edges)
 str_convert(perms, "surface_optimization_8")
 
 using GAP
-@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/src/surface_optimization_8.txt\");")
+@gap("Read(\"~/Documents/GitHub/certified_monodromy_comp/examples/irreducible_surface_optimization/surface_optimization_8.txt\");")
 @gap("G;")
 @gap("StructureDescription(G);") # (S4 x S4) : C2
+@gap("GaloisWidth(G);") #3

@@ -114,3 +114,4 @@ GAP.evalstr(p2_str) #p2 is a product of 12 transpositions
 
 @gap("G := Group(p1,p2);") # define the group G using p1 and p2
 @gap("StructureDescription(G);") # G is K4.
+@gap("GaloisWidth(G);") #2

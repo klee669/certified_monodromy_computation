@@ -29,3 +29,4 @@ using GAP
 @gap("Read(\"~/Desktop/P3P_perm_list_8.txt\");")
 @gap("G;")
 @gap("StructureDescription(G);") # (((C2 x C2 x C2) : (C2 x C2)) : C3) : C2
+@gap("GaloisWidth(G);") #3
