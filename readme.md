@@ -9,20 +9,6 @@
 * **GAP Integration:** Seamless conversion of tracking data into GAP permutation groups for high-level analysis (e.g., Galois Width).
 
 
-## Installation
-
-
-This package requires **Nemo** and **GAP**.
-
-```julia
-using Pkg
-Pkg.add("Nemo")
-Pkg.add("AbstractAlgebra")
-Pkg.add("GAP")
-# Install directly from GitHub (once you push it)
-Pkg.add(url="[https://github.com/YourUsername/CertifiedMonodromyComputation.jl](https://github.com/YourUsername/CertifiedMonodromyComputation.jl)")
-```
-
 ## Quick Start
 
 ### 1. Basic Certified Tracking
@@ -39,20 +25,20 @@ using CertifiedMonodromyComputation
 end
 const CCi = _CCi # Alias for the coefficient ring (Complex Interval Field)
 
-# 2. Define your system F(x, t)
-# Example: Moving from x^2 - 1 (at t=0) to x^2 - 4 (at t=1)
-f1 = x^2 - (1 + 3*t)
-f2 = y - t # Dummy equation for example
-F = [f1, f2]
+# 2. Define your system F(x, y)
+f1 = x^2 + 3*y - 4
+f2 = y^2 + 3
 
-# 3. Define the start point at t=0
-# Precision is handled automatically by AcbField
-x0 = [CCi(1), CCi(0)] 
+F = [f1 f2]
+G = [x^2-1 y^2-1]
+
+# 3. Define the start point at t=0 and the homotopy H
+H = straight_line_homotopy(F, G, t)
+point = [CCi(1), CCi(-1)]
 
 # 4. Track!
-# radius = 0.1
-println("Tracking...")
-result = track(F, x0, 0.1; show_display=true)
+track(H, point)
+track(H, point; iterations_count=true) # print the number of iterations
+track(H, point; show_display=false) # turn off the display
 
-println("Result at t=1: ", result)
 ```
