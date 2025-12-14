@@ -22,6 +22,7 @@ Pkg.add("GAP")
 # Install CertifiedMonodromyComputation (assuming local dev)
 # Replace path with your actual directory path
 Pkg.develop(path="/path/to/CertifiedMonodromyComputation")
+```
 
 ## Quick Start
 
@@ -29,7 +30,7 @@ Pkg.develop(path="/path/to/CertifiedMonodromyComputation")
 
 If you want to track a single solution path from $t=0$ to $t=1$:
 
-```
+```julia
 using Nemo, AbstractAlgebra
 using CertifiedMonodromyComputation
 
