@@ -2,11 +2,11 @@ export krawczyk_operator_taylor_model,
        proceeding_step,
        refine_step,
        linear_tracking,
-       hermite_tracking
-
+       hermite_tracking,
+       certified_hermite_tracking
 
 # --------------------------------------------------------------------------
-# Krawczyk operator in the Taylor model
+# Krawczyk operator in the Taylor model (Original)
 function krawczyk_operator_taylor_model_original(
     H::Union{Matrix, Vector}, 
     lp::Vector, 
@@ -70,7 +70,6 @@ function krawczyk_operator_taylor_model(
     I = identity_matrix(CC, n)
     res = (-1 / r) * A * eH + (I - A * matrix(eHjac)) * matrix(mat[1:n])
     
-    
     for i in 1:length(res)
         term_list = collect(AbstractAlgebra.terms(res[i]))
         deg = length(term_list)
@@ -85,7 +84,7 @@ end
 
 
 # --------------------------------------------------------------------------
-# Krawczyk operator in the Taylor model
+# Krawczyk operator in the Taylor model (Predictor)
 function krawczyk_operator_taylor_model_predictor(
     H::Union{Matrix, Vector}, 
     lp::Vector, 
@@ -109,22 +108,12 @@ function krawczyk_operator_taylor_model_predictor(
     for i in 1:n
         eH[i] = AbstractAlgebra.evaluate(eH[i], lp)
         for j in 1:n
-            eHjac[i, j] = AbstractAlgebra.evaluate(ejac[i, j], lp + r * mat)
+             eHjac[i, j] = AbstractAlgebra.evaluate(ejac[i, j], lp + r * mat)
         end
     end
 
     I = identity_matrix(CC, n)
     res = (-1 / r) * A * eH + (I - A * matrix(eHjac))*matrix(ones(n))
-    
-    
-#    for i in 1:length(res)
-#        term_list = collect(AbstractAlgebra.terms(res[i]))
-#        deg = length(term_list)
- #       if deg < 4
- #           continue
- #       end
- #       res[i] = sum(term_list[deg-2:deg])
- #   end
     
     return res
 end
@@ -166,7 +155,7 @@ function refine_step(
     x::Vector, 
     r::Number, 
     A::AcbMatrix, 
-    h::Number; 
+    h::Number;
     threshold = 1 / 8,
 )
     Ft = evaluate_matrix(Matrix(transpose(hcat(H))), t)
@@ -192,6 +181,10 @@ function linear_tracking(
     n::Int, 
     refinement_threshold::Number,
 )
+    # [Fix] Derive CCi from H
+    eR  = base_ring(H[1])
+    CCi = coefficient_ring(eR)
+
     Ft, x, r, A, v, h, radii = refine_step(H, t, x, r, A, h; threshold = refinement_threshold)
     X = linear_predictor(H, v, x)
 
@@ -226,23 +219,17 @@ function hermite_tracking(
     tracking = "truncate",
     projective = false,
 )
+    # [Fix] Derive CCi from H
+    eR  = base_ring(H[1])
+    CCi = coefficient_ring(eR)
+
     Ft, x, r, A, v, h, radii = refine_step(H, t, x, r, A, h; threshold = refinement_threshold)
-#=    if projective
-        norms = [max_int_norm(xi) for xi in x]
-        x_max_norm = maximum(norms)
-        max_index = argmax(norms)
-        if x_max_norm > 2
-            for i in 1:n
-                H[i] = (1/x[max_index])^(max_deg_H[i]) * H[i]
-            end
-            x = vec(Matrix((1/x[max_index]) * matrix(x)))
-            xprev = vec(Matrix((1/x[max_index]) * matrix(xprev)))
-            v = vec(Matrix((1/x[max_index]) * matrix(v)))
-            vprev = vec(Matrix((1/x[max_index]) * matrix(vprev)))
-            A = jacobian_inverse(evaluate_matrix(hcat(H), t), x)
-        end
-    end
-=#
+    
+    # Projective logic (commented out in original, kept commented)
+    #= if projective
+        ... 
+       end =#
+
     X  = hermite_predictor(H, x, xprev, v, vprev, hprev)
     if tracking == "non-truncate"
         tm = krawczyk_operator_taylor_model_original(H, X, t, A, r)
@@ -261,9 +248,8 @@ function hermite_tracking(
 end
 
 
-
 # --------------------------------------------------------------------------
-# Step using Hermite predictor (with history)
+# Step using Certified Hermite predictor
 function certified_hermite_tracking(
     H::Union{Matrix, Vector}, 
     t::Number, 
@@ -278,9 +264,13 @@ function certified_hermite_tracking(
     refinement_threshold::Number;
     tracking = "truncate"
 )
+    # [Fix] Derive CCi from H
+    eR  = base_ring(H[1])
+    CCi = coefficient_ring(eR)
+
     Ft, x, r, A, v, h, radii = refine_step(H, t, x, r, A, h; threshold = refinement_threshold)
     X  = hermite_predictor(H, x, xprev, v, vprev, hprev)
-        tm = krawczyk_operator_taylor_model_predictor(H, X, t, A, r)
+    tm = krawczyk_operator_taylor_model_predictor(H, X, t, A, r)
 
     T = CCi("$radii +/- $radii")
     input = zeros(CCi, n + 1)
@@ -291,4 +281,3 @@ function certified_hermite_tracking(
 
     return x, v, h, X, r, A
 end
-
