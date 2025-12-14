@@ -4,8 +4,8 @@
 
 ## Features
 
-* **Certified Tracking:** Uses interval arithmetic and the Krawczyk test to certify solution paths.
-* **Automated Monodromy:** Automatically tracks the complete graph to generate the monodromy group (`solve_monodromy`).
+* **Certified tracking:** Uses interval arithmetic and the Krawczyk test to certify solution paths.
+* **Certified monodromy computation:** Automatically tracks the complete homotopy graph to generate the monodromy group (`solve_monodromy`).
 
 
 ## Quick Start
