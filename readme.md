@@ -51,7 +51,7 @@ To compute the monodromy group of a parameterized system:
 using Nemo, AbstractAlgebra
 using CertifiedMonodromyComputation
 
-# 1. Set up the System
+# 1. Set up the polynomial ring
 @monodromy_setup begin
     vars = (x, y)
     params = (p, q)
