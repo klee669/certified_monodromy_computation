@@ -77,7 +77,7 @@ vs = parameter_points(v1, 2, 6) # make 6 parameter points (vertices) in C^2 incl
 edges = solve_monodromy(F, vs; max_roots=4) # it may take several tries to find all solutions for each vertex
 
 # 6. GAP analysis
-G = build_gap_group(4, edges) # Find a group of size 4 with edge correspondences
+G = build_gap_group(4, edges) # Find a group of size 4 from edge correspondences
 
 if G !== nothing
     println("Structure Description:")
