@@ -6,7 +6,6 @@
 
 * **Certified Tracking:** Uses interval arithmetic and the Krawczyk test to certify solution paths.
 * **Automated Monodromy:** Automatically tracks the complete graph to generate the monodromy group (`solve_monodromy`).
-* **GAP Integration:** Seamless conversion of tracking data into GAP permutation groups for high-level analysis (e.g., Galois Width).
 
 
 ## Quick Start
