@@ -1,1 +1,59 @@
-# git repo for certified monodromy group computation
+# CertifiedMonodromyComputation.jl
+
+**CertifiedMonodromyComputation.jl** is a Julia package for **certified numerical homotopy tracking** and **monodromy group computation**. It uses interval arithmetic (via [Nemo.jl](https://github.com/Nemocas/Nemo.jl) and Arb) to provide mathematically rigorous results and integrates with [GAP](https://www.gap-system.org/) for group-theoretic analysis.
+
+## Features
+
+* **Certified Tracking:** Uses interval arithmetic and the Krawczyk test to certify solution paths.
+* **Automated Monodromy:** Automatically tracks the complete graph to generate the monodromy group (`solve_monodromy`).
+* **GAP Integration:** Seamless conversion of tracking data into GAP permutation groups for high-level analysis (e.g., Galois Width).
+
+
+## Installation
+
+This package requires **Nemo** and **GAP**.
+
+```julia
+using Pkg
+Pkg.add("Nemo")
+Pkg.add("AbstractAlgebra")
+Pkg.add("GAP")
+
+# Install CertifiedMonodromyComputation (assuming local dev)
+# Replace path with your actual directory path
+Pkg.develop(path="/path/to/CertifiedMonodromyComputation")
+
+## Quick Start
+
+# 1. Basic Certified Tracking
+
+If you want to track a single solution path from $t=0$ to $t=1$:
+
+```
+using Nemo, AbstractAlgebra
+using CertifiedMonodromyComputation
+
+# 1. Setup the System
+@monodromy_setup begin
+    vars = (x, y)
+    t = t
+end
+const CCi = _CCi # Alias for the coefficient ring (Complex Interval Field)
+
+# 2. Define your system F(x, t)
+# Example: Moving from x^2 - 1 (at t=0) to x^2 - 4 (at t=1)
+f1 = x^2 - (1 + 3*t)
+f2 = y - t # Dummy equation for example
+F = [f1, f2]
+
+# 3. Define the start point at t=0
+# Precision is handled automatically by AcbField
+x0 = [CCi(1), CCi(0)] 
+
+# 4. Track!
+# radius = 0.1
+println("Tracking...")
+result = track(F, x0, 0.1; show_display=true)
+
+println("Result at t=1: ", result)
+```
