@@ -11,7 +11,7 @@
 
 ## Quick Start
 
-### 1. Basic Certified Tracking
+### 1. Basic certified tracking
 
 If you want to track a single solution path from $t=0$ to $t=1$:
 
