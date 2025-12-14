@@ -19,10 +19,8 @@ using Pkg
 Pkg.add("Nemo")
 Pkg.add("AbstractAlgebra")
 Pkg.add("GAP")
-
-# Install CertifiedMonodromyComputation (assuming local dev)
-# Replace path with your actual directory path
-Pkg.develop(path="/path/to/CertifiedMonodromyComputation")
+# Install directly from GitHub (once you push it)
+Pkg.add(url="[https://github.com/YourUsername/CertifiedMonodromyComputation.jl](https://github.com/YourUsername/CertifiedMonodromyComputation.jl)")
 ```
 
 ## Quick Start
@@ -38,7 +36,6 @@ using CertifiedMonodromyComputation
 # 1. Setup the System
 @monodromy_setup begin
     vars = (x, y)
-    t = t
 end
 const CCi = _CCi # Alias for the coefficient ring (Complex Interval Field)
 
